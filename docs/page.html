@@ -1,12 +1,46 @@
 <html>
 <body>
 
+<p id="lat"></p>
 
 <script>
 e = document.createElement('div');
 document.body.appendChild(e);
   e.style="position:absolute;z-index:999;left:10%;top:10%;";
   e.innerHTML = '<iframe id="portal" style="border:0;width:0;height:0;border-radius:500px;transition: all 1s ease-out;" src="https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg"></iframe>';
+
+let locations = [
+  { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095 }
+];
+let closeness = 0.00001; // approx 7m in US
+
+// Try HTML5 geolocation.
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      // now check every 5 seconds:
+      document.getElementById('lat').innerHTML = position.coords.latitude;
+      setInterval(function() {
+        navigator.geolocation.getCurrentPosition(function(pos) {
+          // compare and we should be within ~7m or 0.00001 degrees to match 
+          for(location in locations) {
+            if (Math.abs(location.lat - pos.coords.latitude) < 0.00001) {
+              if (Math.abs(location.lng - pos.coords.longitude) < closeness) {
+                alert(location.name);
+              }
+            }
+          }
+        })
+      }, 5000);
+    },
+    () => {
+      console.log("There was an error geocoding.");
+    },
+  );
+} else {
+  // Browser doesn't support Geolocation
+  console.log("Error: Your browser doesn't support geolocation.");
+}
 
 </script>
 
