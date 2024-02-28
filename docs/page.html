@@ -25,11 +25,13 @@ let locations = [
   { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg'}
 ];
 let closeness = 0.00001; // approx 7m in US
+let count = 0;
 
 if (navigator.geolocation) {
   navigator.geolocation.watchPosition((position) => {
-      // now check every 5 seconds:
-      document.getElementById('lat').innerHTML = position.coords.latitude + ',' + position.coords.longitude + '<br />';
+      document.getElementById('lat').innerHTML = position.coords.latitude + ',' + position.coords.longitude + '<br />'+ count;
+      console.log('update')
+      count = count + 1;
       // compare and we should be within ~7m or 0.00001 degrees to match 
       locations.forEach(function(loc) {
         if (Math.abs(loc.lat - position.coords.latitude) < closeness) {
