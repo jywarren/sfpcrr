@@ -1,37 +1,43 @@
 <html>
 <body>
 
-<p id="lat"></p>
+<!-- TODO
+- stop re-requesting
+- display lat/lon
+-->
 
+<h1 id="lat"></h1>
+<h1 style="color:red;">41.8213485,-71.4156095</h1>
 <script>
 e = document.createElement('div');
 document.body.appendChild(e);
   e.style="position:absolute;z-index:999;left:10%;top:10%;";
-  e.innerHTML = '<iframe id="portal" style="border:0;width:0;height:0;border-radius:500px;transition: all 1s ease-out;" src="https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg"></iframe>';
+  e.innerHTML = portalFrame('https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg');
 
+function portalFrame(src) {
+  return '<iframe id="portal" style="border:0;width:0;height:0;border-radius:500px;transition: all 1s ease-out;" src="' + src + '"></iframe>';
+}
+function portal() {
+  document.getElementById('portal').style.width = '80vw';
+  document.getElementById('portal').style.height = '80vw';
+}
 let locations = [
-  { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095 }
+  { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg'}
 ];
 let closeness = 0.00001; // approx 7m in US
 
-// Try HTML5 geolocation.
 if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
+  navigator.geolocation.watchPosition((position) => {
       // now check every 5 seconds:
-      document.getElementById('lat').innerHTML = position.coords.latitude;
-      setInterval(function() {
-        navigator.geolocation.getCurrentPosition(function(pos) {
-          // compare and we should be within ~7m or 0.00001 degrees to match 
-          for(location in locations) {
-            if (Math.abs(location.lat - pos.coords.latitude) < 0.00001) {
-              if (Math.abs(location.lng - pos.coords.longitude) < closeness) {
-                alert(location.name);
-              }
-            }
+      document.getElementById('lat').innerHTML = position.coords.latitude + ',' + position.coords.longitude + '<br />';
+      // compare and we should be within ~7m or 0.00001 degrees to match 
+      locations.forEach(function(loc) {
+        if (Math.abs(loc.lat - position.coords.latitude) < closeness) {
+          if (Math.abs(loc.lng - position.coords.longitude) < closeness) {
+            portal();
           }
-        })
-      }, 5000);
+        }
+      })
     },
     () => {
       console.log("There was an error geocoding.");
@@ -44,6 +50,6 @@ if (navigator.geolocation) {
 
 </script>
 
-<a onclick="document.getElementById('portal').style.width = '80vw';document.getElementById('portal').style.height = '80vw';">Click</a>
+<a onclick="portal();">Portal</a>
 </body>
 </html>
