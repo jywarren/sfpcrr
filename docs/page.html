@@ -1,9 +1,23 @@
 <html>
 <body>
+<style>
+body {
+  transition: all 2s ease-out;
+}
+.chrom {
+  position: relative;
+  -webkit-filter: url(#kill);
+}
+iframe {
+  border:0;
+  width:0;
+  height:0;
+  border-radius:500px;
+  transition: all 2s ease-out;
+}
+</style>
 
 <!-- TODO
-- stop re-requesting
-- display lat/lon
 -->
 
 <h1 id="lat"></h1>
@@ -15,7 +29,7 @@ document.body.appendChild(e);
   e.innerHTML = portalFrame('https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg');
 
 function portalFrame(src) {
-  return '<iframe id="portal" style="border:0;width:0;height:0;border-radius:500px;transition: all 1s ease-out;" src="' + src + '"></iframe>';
+  return '<iframe id="portal" src="' + src + '"></iframe>';
 }
 function portal() {
   document.getElementById('portal').style.width = '80vw';
@@ -24,7 +38,7 @@ function portal() {
 let locations = [
   { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg'}
 ];
-let closeness = 0.00001; // approx 7m in US
+let closeness = 0.0001; // approx 70m in US
 let count = 0;
 
 if (navigator.geolocation) {
@@ -52,6 +66,29 @@ if (navigator.geolocation) {
 
 </script>
 
-<a onclick="portal();">Portal</a>
+<a onclick="portal();document.body.classList.add('chrom');">Portal</a>
+
+<svg width="0" height="0">
+  <filter id="kill">
+    <feColorMatrix type="matrix" 
+      result="red_"             
+      values="4 0 0 0 0
+              0 0 0 0 0 
+              0 0 0 0 0 
+              0 0 0 1 0"/>
+    <feOffset in="red_" dx="1" dy="1" result="red"/>
+    <feColorMatrix type="matrix" 
+      in="SourceGraphic"             
+      result="blue_"             
+      values="0 0 0 0 0
+              0 3 0 0 0 
+              0 0 10 0 0 
+              0 0 0 1 0"/>
+    <feOffset in="blue_" dx="-0.5" dy="-1" result="blue"/>    
+    <feBlend mode="screen" in="red" in2="blue"/>
+    <feGaussianBlur stdDeviation="0.5" />
+
+  </filter>
+</svg>
 </body>
 </html>
