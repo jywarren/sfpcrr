@@ -59,6 +59,9 @@ if (navigator.geolocation) {
     () => {
       console.log("There was an error geocoding.");
     },
+    {
+      enableHighAccuracy: true
+    }
   );
 } else {
   // Browser doesn't support Geolocation
