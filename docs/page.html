@@ -40,8 +40,10 @@ function hidePortal() {
   document.getElementById('portal').style.height = '0';
 }
 let locations = [
-  { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
-  { name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg'}
+  { name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg'},
+  { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-empire-stacked.jpg'},
+  { name: 'Providence Burrill St. Chinatown', lat: 41.820647, lng: -71.415001, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked.jpg'},
+  { name: 'Portland Chinese Vegetable Gardens', lat: 45.520291, lng: -122.692254, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
 ];
 let closeness = 0.0001; // approx 70m in US
 let count = 0, // delete this, it's debug
@@ -49,6 +51,7 @@ let count = 0, // delete this, it's debug
 
 if (navigator.geolocation) {
   navigator.geolocation.watchPosition((position) => {
+      let isPortal = false;
       document.getElementById('lat').innerHTML = position.coords.latitude + ',' + position.coords.longitude + '<br />'+ count;
       count = count + 1;
       // compare and we should be within ~7m or 0.0001 degrees to match 
