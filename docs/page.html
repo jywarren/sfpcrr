@@ -35,26 +35,36 @@ function portal() {
   document.getElementById('portal').style.width = '80vw';
   document.getElementById('portal').style.height = '80vw';
 }
+function hidePortal() {
+  document.getElementById('portal').style.width = '0';
+  document.getElementById('portal').style.height = '0';
+}
 let locations = [
   { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
   { name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg'}
 ];
 let closeness = 0.0001; // approx 70m in US
-let count = 0;
+let count = 0, // delete this, it's debug
+  preservePortal = 0; // leave portal open on a timer
 
 if (navigator.geolocation) {
   navigator.geolocation.watchPosition((position) => {
       document.getElementById('lat').innerHTML = position.coords.latitude + ',' + position.coords.longitude + '<br />'+ count;
-      console.log('update')
       count = count + 1;
-      // compare and we should be within ~7m or 0.00001 degrees to match 
+      // compare and we should be within ~7m or 0.0001 degrees to match 
       locations.forEach(function(loc) {
         if (Math.abs(loc.lat - position.coords.latitude) < closeness) {
           if (Math.abs(loc.lng - position.coords.longitude) < closeness) {
             portal();
+            isPortal = true;
+            preservePortal = 3; // leave portal open for 3 cycles
           }
         }
       })
+      preservePortal = preservePortal - 1;
+      if (!isPortal && preservePortal < 1) {
+        hidePortal();
+      }
     },
     () => {
       console.log("There was an error geocoding.");
