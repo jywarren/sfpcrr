@@ -60,7 +60,7 @@ if (navigator.geolocation) {
       locations.forEach(function(loc) {
         if (Math.abs(loc.lat - position.coords.latitude) < closeness) {
           if (Math.abs(loc.lng - position.coords.longitude) < closeness) {
-            portal();
+            portal(loc.url);
             isPortal = true;
             preservePortal = 3; // leave portal open for 3 cycles
           }
