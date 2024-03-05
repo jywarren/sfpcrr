@@ -31,7 +31,8 @@ document.body.appendChild(e);
 function portalFrame(src) {
   return '<iframe id="portal" src="' + src + '"></iframe>';
 }
-function portal() {
+function portal(src) {
+  document.getElementById('portal').src = src;
   document.getElementById('portal').style.width = '80vw';
   document.getElementById('portal').style.height = '80vw';
 }
@@ -44,6 +45,7 @@ let locations = [
   { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-empire-stacked.jpg'},
   { name: 'Providence Burrill St. Chinatown', lat: 41.820647, lng: -71.415001, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked.jpg'},
   { name: 'Portland Chinese Vegetable Gardens', lat: 45.520291, lng: -122.692254, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
+  { name: 'Statue of Confucius', lat: 25.027136, lng: 121.528874, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
 ];
 let closeness = 0.0001; // approx 70m in US
 let count = 0, // delete this, it's debug
