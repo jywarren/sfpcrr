@@ -32,7 +32,7 @@ function portalFrame(src) {
   return '<iframe id="portal" src="' + src + '"></iframe>';
 }
 function portal(src) {
-  document.getElementById('portal').src = src;
+  if (document.getElementById('portal').src != src) document.getElementById('portal').src = src;
   document.getElementById('portal').style.width = '80vw';
   document.getElementById('portal').style.height = '80vw';
 }
