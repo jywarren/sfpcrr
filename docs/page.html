@@ -19,9 +19,11 @@ iframe {
 
 <!-- TODO
 -->
-
-<h1 id="lat"></h1>
-<h1 style="color:red;">41.8213485,-71.4156095</h1>
+<h1>Hidden Portals</h1>
+<div style="display:none;">
+  <h1 id="lat"></h1>
+  <h1 style="color:red;">41.8213485,-71.4156095</h1>
+</div>
 <script>
 e = document.createElement('div');
 document.body.appendChild(e);
@@ -46,6 +48,7 @@ let locations = [
   { name: 'Providence Burrill St. Chinatown', lat: 41.820647, lng: -71.415001, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked.jpg'},
   { name: 'Portland Chinese Vegetable Gardens', lat: 45.520291, lng: -122.692254, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
   { name: 'Statue of Confucius', lat: 25.027136, lng: 121.528874, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
+  { name: 'Connie', lat: 39.953892, lng: -75.156224, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/connie.jpg'},
 ];
 let closeness = 0.0001; // approx 70m in US
 let count = 0, // delete this, it's debug
@@ -84,7 +87,7 @@ if (navigator.geolocation) {
 }
 
 </script>
-
+p
 <a onclick="portal();document.body.classList.add('chrom');">Portal</a>
 
 <svg width="0" height="0">
