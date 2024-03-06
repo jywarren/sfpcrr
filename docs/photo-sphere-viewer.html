@@ -58,7 +58,7 @@
             });
             window.viewer = viewer;
             viewer.addEventListener('ready', () => {
-              viewer.plugin.GyroscopePlugin.start();
+              viewer.getPlugin(PhotoSphereViewer.GyroscopePlugin).start();
             }, { once: true });
 
         </script>
