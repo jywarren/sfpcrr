@@ -25,7 +25,8 @@
                 "imports": {
                     "three": "https://cdn.jsdelivr.net/npm/three/build/three.module.js",
                     "@photo-sphere-viewer/core": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5/index.module.js",
-                    "@photo-sphere-viewer/gyroscope-plugin": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/gyroscope-plugin@5/index.module.js"
+                    "@photo-sphere-viewer/gyroscope-plugin": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/gyroscope-plugin@5/index.module.js",
+                    "@photo-sphere-viewer/stereo-plugin": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/stereo-plugin@5/index.module.js"
                 }
             }
         </script>
@@ -33,6 +34,7 @@
         <script type="module">
             import { Viewer } from '@photo-sphere-viewer/core';
             import { GyroscopePlugin } from '@photo-sphere-viewer/gyroscope-plugin';
+            import { StereoPlugin } from '@photo-sphere-viewer/stereo-plugin';
 
             const baseUrl = '';//'https://jywarren.github.io/sfpcrr/';
 
@@ -46,6 +48,7 @@
                   //'fullscreen'
                 ],
                 plugins: [
+                    StereoPlugin,
                     [GyroscopePlugin, {
                       absolutePosition: true,
                       moveMode: 'fast',
