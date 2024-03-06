@@ -57,7 +57,7 @@
                 ],
             });
             window.viewer = viewer;
-            viewer.plugin.GyroscopePlugin.start();
+            setTimeout(function() { viewer.plugin.GyroscopePlugin.start();},1000);
         </script>
     </body>
 </html>
