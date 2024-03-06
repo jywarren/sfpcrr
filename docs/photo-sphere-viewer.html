@@ -57,7 +57,10 @@
                 ],
             });
             window.viewer = viewer;
-            setTimeout(function() { viewer.plugin.GyroscopePlugin.start();},1000);
+            viewer.addEventListener('ready', () => {
+              viewer.plugin.GyroscopePlugin.start();
+            }, { once: true });
+
         </script>
     </body>
 </html>
