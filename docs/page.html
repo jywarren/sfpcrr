@@ -1,34 +1,44 @@
 <html>
 <body>
+<link rel="stylesheet" href="portals.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
 <style>
-body {
-  transition: all 2s ease-out;
-}
-.chrom {
-  position: relative;
-  -webkit-filter: url(#kill);
-}
-iframe {
-  border:0;
-  width:0;
-  height:0;
-  border-radius:500px;
-  transition: all 2s ease-out;
-}
 </style>
 
 <!-- TODO
+- try preloading imgs with onLoad()
+- do it when in closeness*5 distance?
+- buzz or flicker when in closeness*5 distance?
+- figure out orientation - switch to photo-sphere-viewer
 -->
 <h1>Hidden Portals</h1>
+
+<p>Hidden Portals is part of the <a href="https://libraryofcongress.github.io/seeing-lost-enclaves/">Seeing Lost Enclaves</a> project by <a href="https://unterbahn.com">Jeffrey Yoo Warren</a>.</p>
+
 <div style="display:none;">
   <h1 id="lat"></h1>
   <h1 style="color:red;">41.8213485,-71.4156095</h1>
 </div>
+<a onclick="portal();">Portal</a>
+
 <script>
-e = document.createElement('div');
+
+let locations = [
+  { name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg'},
+  { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-empire-stacked.jpg'},
+  { name: 'Providence Burrill St. Chinatown', lat: 41.820647, lng: -71.415001, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked.jpg'},
+  { name: 'Portland Chinese Vegetable Gardens', lat: 45.520291, lng: -122.692254, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
+  { name: 'Statue of Confucius', lat: 25.027136, lng: 121.528874, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
+  { name: 'Connie', lat: 39.953892, lng: -75.156224, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/connie.jpg'},
+];
+
+let el = document.createElement('div');
 document.body.appendChild(e);
-  e.style="position:absolute;z-index:999;left:10%;top:10%;";
-  e.innerHTML = portalFrame('https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg');
+el.style="position:absolute;z-index:999;left:10%;top:10%;";
+el.innerHTML = portalFrame('https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg');
 
 function portalFrame(src) {
   return '<iframe id="portal" src="' + src + '"></iframe>';
@@ -42,23 +52,28 @@ function hidePortal() {
   document.getElementById('portal').style.width = '0';
   document.getElementById('portal').style.height = '0';
 }
-let locations = [
-  { name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg'},
-  { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-empire-stacked.jpg'},
-  { name: 'Providence Burrill St. Chinatown', lat: 41.820647, lng: -71.415001, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked.jpg'},
-  { name: 'Portland Chinese Vegetable Gardens', lat: 45.520291, lng: -122.692254, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
-  { name: 'Statue of Confucius', lat: 25.027136, lng: 121.528874, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
-  { name: 'Connie', lat: 39.953892, lng: -75.156224, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/connie.jpg'},
-];
 let closeness = 0.0001; // approx 70m in US
 let count = 0, // delete this, it's debug
   preservePortal = 0; // leave portal open on a timer
 
 if (navigator.geolocation) {
   navigator.geolocation.watchPosition((position) => {
-      let isPortal = false;
+      let isPortal = false, isNearPortal = false;
       document.getElementById('lat').innerHTML = position.coords.latitude + ',' + position.coords.longitude + '<br />'+ count;
       count = count + 1;
+      // detect if we're closeness*5 near a portal
+      locations.forEach(function(loc) {
+        if (Math.abs(loc.lat - position.coords.latitude) < closeness * 5) {
+          if (Math.abs(loc.lng - position.coords.longitude) < closeness * 5) {
+            isNearPortal = true;
+          }
+        }
+      })
+      if (isNearPortal) {
+        document.body.classList.add('crt');
+      } else {
+        document.body.classList.remove('crt');
+      }
       // compare and we should be within ~7m or 0.0001 degrees to match 
       locations.forEach(function(loc) {
         if (Math.abs(loc.lat - position.coords.latitude) < closeness) {
@@ -87,30 +102,5 @@ if (navigator.geolocation) {
 }
 
 </script>
-p
-<a onclick="portal();document.body.classList.add('chrom');">Portal</a>
-
-<svg width="0" height="0">
-  <filter id="kill">
-    <feColorMatrix type="matrix" 
-      result="red_"             
-      values="4 0 0 0 0
-              0 0 0 0 0 
-              0 0 0 0 0 
-              0 0 0 1 0"/>
-    <feOffset in="red_" dx="1" dy="1" result="red"/>
-    <feColorMatrix type="matrix" 
-      in="SourceGraphic"             
-      result="blue_"             
-      values="0 0 0 0 0
-              0 3 0 0 0 
-              0 0 10 0 0 
-              0 0 0 1 0"/>
-    <feOffset in="blue_" dx="-0.5" dy="-1" result="blue"/>    
-    <feBlend mode="screen" in="red" in2="blue"/>
-    <feGaussianBlur stdDeviation="0.5" />
-
-  </filter>
-</svg>
 </body>
 </html>
