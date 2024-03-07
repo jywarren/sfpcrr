@@ -28,7 +28,7 @@
   <h1 id="lat"></h1>
   <h1 style="color:red;">41.8213485,-71.4156095</h1>
 </div>
-<a onclick="portal();">Portal</a>
+<a onclick="portal('https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked-progressive.jpg');">Portal</a>
 
 <script>
 
@@ -43,18 +43,20 @@ let locations = [
 
 let el = document.createElement('div');
 document.body.appendChild(el);
-el.style="position:absolute;z-index:999;left:10%;top:10%;";
-el.innerHTML = portalFrame('https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked-progressive.jpg');
-
-function portalFrame(src) {
-  return '<iframe id="portal" src="' + src + '"></iframe>';
-}
+el.classList.add("portalDiv");
+el.style="position:absolute;z-index:999;left:50%;top:50%;";
+el.innerHTML = '<iframe id="portal" src="https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg"></iframe>';
+hidePortal();
 function portal(src) {
   if (document.getElementById('portal').src != src) document.getElementById('portal').src = src;
+  el.style.left = '10vw';
+  el.style.top = '10vw';
   document.getElementById('portal').style.width = '80vw';
   document.getElementById('portal').style.height = '80vw';
 }
 function hidePortal() {
+  el.style.left = '50%';
+  el.style.top = '50%';
   document.getElementById('portal').style.width = '0';
   document.getElementById('portal').style.height = '0';
 }
