@@ -52,6 +52,7 @@ let portal = document.getElementById('portal');
 hidePortal();
 function showPortal(src) {
   if (portal.src != src) portal.src = src;
+  portalOpen = true;
   el.style.left = '10%';
   el.style.top = '10%';
   portal.style.width = '80vw';
@@ -81,7 +82,7 @@ let count = 0, // delete this, it's debug
 
 if (navigator.geolocation) {
   navigator.geolocation.watchPosition((position) => {
-      let isPortal = false, isNearPortal = false;
+      let foundPortal = false, isNearPortal = false;
       document.getElementById('lat').innerHTML = position.coords.latitude + ',' + position.coords.longitude + '<br />'+ count;
       count = count + 1;
       // detect if we're closeness*5 near a portal
@@ -103,15 +104,14 @@ if (navigator.geolocation) {
           if (Math.abs(loc.lng - position.coords.longitude) < closeness) {
             if (portalOpen == false) {
               showPortal(loc.url);
-              portalOpen = true;
               preservePortal = 3; // leave portal open for 3 cycles
              }
-             isPortal = true;
+             foundPortal = true;
           }
         }
       })
       preservePortal = preservePortal - 1;
-      if (!isPortal && preservePortal < 1) {
+      if (!foundPortal && preservePortal < 1) {
         hidePortal();
         portalOpen = false;
       }
