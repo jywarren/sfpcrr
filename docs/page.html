@@ -104,9 +104,9 @@ if (navigator.geolocation) {
             if (portalOpen == false) {
               showPortal(loc.url);
               portalOpen = true;
-              isPortal = true;
               preservePortal = 3; // leave portal open for 3 cycles
              }
+             isPortal = true;
           }
         }
       })
