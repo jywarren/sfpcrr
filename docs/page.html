@@ -19,6 +19,7 @@
 - do it when in closeness*5 distance?
 - buzz or flicker when in closeness*5 distance?
 - figure out orientation - switch to photo-sphere-viewer
+- audio preloading
 -->
 <h1>Hidden Portals</h1>
 
@@ -28,7 +29,7 @@
   <h1 id="lat"></h1>
   <h1 style="color:red;">41.8213485,-71.4156095</h1>
 </div>
-<a onclick="portal('https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked-progressive.jpg');">Portal</a>
+<a onclick="showPortal('https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked-progressive.jpg');">Test Portal</a>
 
 <script>
 
@@ -46,19 +47,33 @@ document.body.appendChild(el);
 el.classList.add("portalDiv");
 el.style="position:absolute;z-index:999;left:50%;top:50%;";
 el.innerHTML = '<iframe id="portal" src="https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg"></iframe>';
+el.onclick = function() { portalGrow() };
+let portal = document.getElementById('portal');
 hidePortal();
-function portal(src) {
-  if (document.getElementById('portal').src != src) document.getElementById('portal').src = src;
-  el.style.left = '10vw';
-  el.style.top = '10vw';
-  document.getElementById('portal').style.width = '80vw';
-  document.getElementById('portal').style.height = '80vw';
+function showPortal(src) {
+  if (portal.src != src) portal.src = src;
+  el.style.left = '10%';
+  el.style.top = '10%';
+  portal.style.width = '80vw';
+  portal.style.height = '80vw';
+  portal.style['border-radius'] = '500px';
+}
+function portalGrow(src) {
+  console.log('grow')
+  el.style.left = 0;
+  el.style.top = 0;
+  portal.style.width = '100vw';
+  portal.style.height = '100vh';
+  portal.style['border-radius'] = 0;
+  portal.style['pointer-events'] = 'all';
 }
 function hidePortal() {
   el.style.left = '50%';
   el.style.top = '50%';
-  document.getElementById('portal').style.width = '0';
-  document.getElementById('portal').style.height = '0';
+  portal.style['border-radius'] = '500px';
+  portal.style.width = 0;
+  portal.style.height = 0;
+  portal.style['pointer-events'] = 'none';
 }
 let closeness = 0.0001; // approx 70m in US
 let count = 0, // delete this, it's debug
@@ -86,7 +101,7 @@ if (navigator.geolocation) {
       locations.forEach(function(loc) {
         if (Math.abs(loc.lat - position.coords.latitude) < closeness) {
           if (Math.abs(loc.lng - position.coords.longitude) < closeness) {
-            portal(loc.url);
+            showPortal(loc.url);
             isPortal = true;
             preservePortal = 3; // leave portal open for 3 cycles
           }
