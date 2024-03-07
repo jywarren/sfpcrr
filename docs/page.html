@@ -59,7 +59,6 @@ function showPortal(src) {
   portal.style['border-radius'] = '500px';
 }
 function portalGrow(src) {
-  console.log('grow')
   el.style.left = 0;
   el.style.top = 0;
   portal.style.width = '100vw';
@@ -77,7 +76,8 @@ function hidePortal() {
 }
 let closeness = 0.0001; // approx 70m in US
 let count = 0, // delete this, it's debug
-  preservePortal = 0; // leave portal open on a timer
+    preservePortal = 0, // leave portal open on a timer
+    portalOpen = false;
 
 if (navigator.geolocation) {
   navigator.geolocation.watchPosition((position) => {
@@ -101,15 +101,19 @@ if (navigator.geolocation) {
       locations.forEach(function(loc) {
         if (Math.abs(loc.lat - position.coords.latitude) < closeness) {
           if (Math.abs(loc.lng - position.coords.longitude) < closeness) {
-            showPortal(loc.url);
-            isPortal = true;
-            preservePortal = 3; // leave portal open for 3 cycles
+            if (portalOpen == false) {
+              showPortal(loc.url);
+              portalOpen = true;
+              isPortal = true;
+              preservePortal = 3; // leave portal open for 3 cycles
+             }
           }
         }
       })
       preservePortal = preservePortal - 1;
       if (!isPortal && preservePortal < 1) {
         hidePortal();
+        portalOpen = false;
       }
     },
     () => {
