@@ -34,7 +34,7 @@
 <script>
 
 let locations = [
-  { name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg'},
+  { name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg', audio: 'audio/mapogu.m4a'},
   { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-empire-stacked-progressive.jpg'},
   { name: 'Providence Burrill St. Chinatown', lat: 41.820647, lng: -71.415001, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked-progressive.jpg'},
   { name: 'Portland Chinese Vegetable Gardens', lat: 45.520291, lng: -122.692254, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
@@ -45,36 +45,46 @@ let locations = [
 let el = document.createElement('div');
 document.body.appendChild(el);
 el.classList.add("portalDiv");
-el.style="position:absolute;z-index:999;left:50%;top:50%;";
+el.style="position:absolute;z-index:999;left:50%;bottom:50%;";
 el.innerHTML = '<iframe id="portal" src="https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg"></iframe>';
 el.onclick = function() { portalGrow() };
 let portal = document.getElementById('portal');
+let audioEl = {};
 hidePortal();
 function showPortal(src) {
   if (portal.src != src) portal.src = src;
   portalOpen = true;
   el.style.left = '10%';
-  el.style.top = '10%';
+  el.style.bottom = '10%';
   portal.style.width = '80vw';
   portal.style.height = '80vw';
   portal.style['border-radius'] = '500px';
 }
 function portalGrow(src) {
   el.style.left = 0;
-  el.style.top = 0;
+  el.style.bottom = '-5px';
   portal.style.width = '100vw';
-  portal.style.height = '100vh';
+  portal.style.height = '101vh';
   portal.style['border-radius'] = 0;
   portal.style['pointer-events'] = 'all';
+  if (audioEl.src) audioEl.play();
 }
 function hidePortal() {
   el.style.left = '50%';
-  el.style.top = '50%';
+  el.style.bottom = '50%';
   portal.style['border-radius'] = '500px';
   portal.style.width = 0;
   portal.style.height = 0;
   portal.style['pointer-events'] = 'none';
+  if (audioEl.hasOwnProperty(stop)) audioEl.stop();
 }
+function loadAudio(src) {
+  audioEl = new Audio(src);
+  /*audioEl.addEventListener("canplaythrough", (event) => {
+    audioEl.play(); // doesn't work because it requires user interaction before audio is allowed
+  });*/
+}
+
 let closeness = 0.0001; // approx 70m in US
 let count = 0, // delete this, it's debug
     preservePortal = 0, // leave portal open on a timer
@@ -90,6 +100,7 @@ if (navigator.geolocation) {
         if (Math.abs(loc.lat - position.coords.latitude) < closeness * 5) {
           if (Math.abs(loc.lng - position.coords.longitude) < closeness * 5) {
             isNearPortal = true;
+            if (loc.audio) loadAudio(loc.audio); // preload audio
           }
         }
       })
@@ -104,6 +115,7 @@ if (navigator.geolocation) {
           if (Math.abs(loc.lng - position.coords.longitude) < closeness) {
             if (portalOpen == false) {
               showPortal(loc.url);
+              if (loc.audio != audioEl.src) loadAudio(loc.audio); // if there's new audio
               preservePortal = 3; // leave portal open for 3 cycles
              }
              foundPortal = true;
