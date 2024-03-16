@@ -10,20 +10,33 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&family=Oswald:wght@200..700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
 
 <style>
 </style>
 
 <!-- TODO
-- try preloading imgs with onLoad()
+- try preloading imgs with onLoad() ( preloading is already done somehow? Caching?)
 - do it when in closeness*5 distance?
-- buzz or flicker when in closeness*5 distance?
+X buzz or flicker when in closeness*5 distance?
 - figure out orientation - switch to photo-sphere-viewer
 - audio preloading
+- debug audio turning off
 -->
-<h1>Hidden Portals</h1>
+<div class="text">
+<h1>Hidden<br />Portals</h1>
 
-<p>Hidden Portals is part of the <a href="https://libraryofcongress.github.io/seeing-lost-enclaves/">Seeing Lost Enclaves</a> project by <a href="https://unterbahn.com">Jeffrey Yoo Warren</a>.</p>
+<p>At the sites of 5 historical erased communities of color, portals have been hidden in plain sight. When you approach, the portals will open, allowing a glimpse into virtually reconstructed, immersive moments from their pasts which I and my collaborators have spent the past two years crafting from archival records and photographs, oral histories and other clues.</p> 
+
+<p>Our experiences sifting through archival clues has also revealed how these stories have been historically invisibilized within archival collections. Recognizing this, portals have also been created in and around the Library of Congress in Washington, DC.</p>
+
+<p>These hidden worlds are, by necessity, partial, fleeting, and speculative to varying degrees. In the spirit of Saidiya Hartman’s critical fabulation and the speculative fiction of Linda Sue Park, we have focused on the sensory experiences of place – those knowledges most likely to survive by remaining hidden – rather than the dates and historical facts. By placing these worlds – these reconstructions of lost enclaves – in unmarked spots, I hope they will resist denials, misunderstandings, exoticizing gazes, and re-displacement, through their insubstantial and ghostly presence, impossible to drive out.</p>
+
+<p>Hidden Portals is part of the <a href="https://libraryofcongress.github.io/seeing-lost-enclaves/">Seeing Lost Enclaves</a> project by <a href="https://unterbahn.com">Jeffrey Yoo Warren</a> 2023 Innovator in Residence at the Library of Congress.</p>
+</div>
+
+</div>
 
 <div style="display:none;">
   <h1 id="lat"></h1>
@@ -39,7 +52,9 @@ let locations = [
   { name: 'Providence Burrill St. Chinatown', lat: 41.820647, lng: -71.415001, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked-progressive.jpg'},
   { name: 'Portland Chinese Vegetable Gardens', lat: 45.520291, lng: -122.692254, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
   { name: 'Statue of Confucius', lat: 25.027136, lng: 121.528874, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
+  { name: 'Together Shovel', lat: 41.820824, lng: -71.415476, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/shovel.jpg', audio: 'audio/together-shove.mp3'},
   { name: 'Connie', lat: 39.953892, lng: -75.156224, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/connie.jpg'},
+//  { name: 'Zoe', lat: 39.953892, lng: -75.156224, url: 'https://jywarren.github.io/sfpcrr/zoe/cubemap'},
 ];
 
 let el = document.createElement('div');
