@@ -51,8 +51,13 @@ let locations = [
   { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-empire-stacked-progressive.jpg'},
   { name: 'Providence Burrill St. Chinatown', lat: 41.820647, lng: -71.415001, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked-progressive.jpg'},
   { name: 'Portland Chinese Vegetable Gardens', lat: 45.520291, lng: -122.692254, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
-  { name: 'Statue of Confucius', lat: 25.027136, lng: 121.528874, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
   { name: 'Together Shovel', lat: 41.820824, lng: -71.415476, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/shovel-stacked.jpg', audio: 'audio/together-shove.mp3'},
+  { name: 'LOC Adams', lat: 38.887824, lng: -77.002778, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
+  { name: 'LOC Madison', lat: 38.887369, lng: -77.005503, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
+  { name: 'LOC Madison Courtyard', lat: 38.886620954383034, lng: -77.00471585290629, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
+  { name: 'LOC Jefferson Courtyard', lat: 38.88846874367604, lng: -77.00489686567619, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
+  { name: 'LOC G&M', lat: 38.88696537705029, lng: -77.00447063619433, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
+  { name: 'Statue of Confucius', lat: 25.027136, lng: 121.528874, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
   { name: 'Connie', lat: 39.953892, lng: -75.156224, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/connie.jpg'},
 //  { name: 'Zoe', lat: 39.953892, lng: -75.156224, url: 'https://jywarren.github.io/sfpcrr/zoe/cubemap'},
 ];
@@ -82,7 +87,13 @@ function portalGrow(src) {
   portal.style.height = '101vh';
   portal.style['border-radius'] = 0;
   portal.style['pointer-events'] = 'all';
-  if (audioEl.src) audioEl.play();
+  if (audioEl.src) {
+    audioEl.addEventListener('ended', function() {
+      this.currentTime = 0;
+      this.play();
+    }, false);
+    audioEl.play();
+  }
 }
 function hidePortal() {
   el.style.left = '50%';
@@ -91,7 +102,9 @@ function hidePortal() {
   portal.style.width = 0;
   portal.style.height = 0;
   portal.style['pointer-events'] = 'none';
-  if (audioEl.hasOwnProperty(stop)) audioEl.stop();
+  if (audioEl.hasOwnProperty(stop)) {
+    audioEl.stop();
+  } else { console.log('couldnt stop'); }
 }
 function loadAudio(src) {
   audioEl = new Audio(src);
