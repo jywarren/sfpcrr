@@ -139,6 +139,7 @@ if (navigator.geolocation) {
       })
       if (isNearPortal) {
         document.body.classList.add('crt');
+        window.navigator.vibrate([50,50,50]);
       } else {
         document.body.classList.remove('crt');
       }
