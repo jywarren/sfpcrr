@@ -20,8 +20,14 @@
 - try preloading imgs with onLoad() ( preloading is already done somehow? Caching?)
 - do it when in closeness*5 distance?
 X buzz or flicker when in closeness*5 distance?
-- figure out orientation - switch to photo-sphere-viewer
-- audio preloading
+
+- debug portals closing aggressively
+- after 3m open portal if near
+- per-site closeness value
+- turn off audio
+
+- figure out compass orientation - switch to photo-sphere-viewer
+- audio preloading ?
 - debug audio turning off
 -->
 <div class="text">
@@ -58,9 +64,10 @@ let locations = [
   { name: 'LOC Jefferson Courtyard', lat: 38.88846874367604, lng: -77.00489686567619, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
   { name: 'LOC G&M', lat: 38.88695681049907, lng: -77.00469312973286, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/hanford-sunset-stacked.jpg', audio: 'audio/portland.m4a'},
   { name: 'Portland Chinese Vegetable Gardens', lat: 45.520269721339204, lng: -122.6921961678906, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
-  { name: 'Pachappa Camp', lat: 33.971627, lng: -117.371908, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
-  { name: 'Pachappa Camp 2', lat: 33.971262, lng: -117.372294, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
+  { name: 'Pachappa Camp', lat: 33.971627, lng: -117.371908, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/pachappa-render-test.jpg', audio: 'audio/portland.m4a'},
+  { name: 'Pachappa Camp 2', lat: 33.971262, lng: -117.372294, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/pachappa-render-test.jpg', audio: 'audio/portland.m4a'},
   { name: 'Hanford China Alley', lat: 36.327791409233875, lng: -119.64041287997296, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/hanford-sunset.jpg', audio: 'audio/together-shovel.mp3'},
+  { name: 'Hanford TEST', lat: 34.09576763300175, lng: -118.30430354416602, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/hanford-sunset.jpg', audio: 'audio/together-shovel.mp3'},
   { name: 'Truckee Chinatown', lat: 39.32746622566374, lng: -120.1870212082937, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/hanford-stitch-corrected-stacked.jpg', audio: 'audio/together-shovel.mp3'},
   { name: 'Statue of Confucius', lat: 25.027136, lng: 121.528874, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
   { name: 'Connie', lat: 39.953892, lng: -75.156224, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/connie.jpg'},
