@@ -17,18 +17,19 @@
 </style>
 
 <!-- TODO
-- try preloading imgs with onLoad() ( preloading is already done somehow? Caching?)
-- do it when in closeness*5 distance?
 X buzz or flicker when in closeness*5 distance?
 
 - debug portals closing aggressively
+
+- rework buzzing, stop when actually there
 - after 3m open portal if near
 - per-site closeness value
-- turn off audio
+- debug audio not turning off
 
-- figure out compass orientation - switch to photo-sphere-viewer
+- try preloading imgs with onLoad() ( preloading is already done somehow? Caching?)
+- do it when in closeness*5 distance?
 - audio preloading ?
-- debug audio turning off
+- figure out compass orientation - switch to photo-sphere-viewer
 -->
 <div class="text">
 <h1>Hidden<br />Portals</h1>
@@ -42,18 +43,84 @@ X buzz or flicker when in closeness*5 distance?
 <p>Hidden Portals is part of the <a href="https://libraryofcongress.github.io/seeing-lost-enclaves/">Seeing Lost Enclaves</a> project by <a href="https://unterbahn.com">Jeffrey Yoo Warren</a> 2023 Innovator in Residence at the Library of Congress.</p>
 </div>
 
+
+<br />
+
+<h2>Portal sites</h2>
+
+<section class="carousel" aria-label="Gallery">
+  <ol class="carousel__viewport">
+    <li id="carousel__slide1"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper">
+        <a href="#carousel__slide4"
+           class="carousel__prev">Go to last slide</a>
+        <a href="#carousel__slide2"
+           class="carousel__next">Go to next slide</a>
+      </div>
+<p>Hello</p>
+    </li>
+    <li id="carousel__slide2"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper"></div>
+      <a href="#carousel__slide1"
+         class="carousel__prev">Go to previous slide</a>
+      <a href="#carousel__slide3"
+         class="carousel__next">Go to next slide</a>
+    </li>
+    <li id="carousel__slide3"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper"></div>
+      <a href="#carousel__slide2"
+         class="carousel__prev">Go to previous slide</a>
+      <a href="#carousel__slide4"
+         class="carousel__next">Go to next slide</a>
+    </li>
+    <li id="carousel__slide4"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper"></div>
+      <a href="#carousel__slide3"
+         class="carousel__prev">Go to previous slide</a>
+      <a href="#carousel__slide1"
+         class="carousel__next">Go to first slide</a>
+    </li>
+  </ol>
+  <aside class="carousel__navigation">
+    <ol class="carousel__navigation-list">
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide1"
+           class="carousel__navigation-button">Go to slide 1</a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide2"
+           class="carousel__navigation-button">Go to slide 2</a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide3"
+           class="carousel__navigation-button">Go to slide 3</a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide4"
+           class="carousel__navigation-button">Go to slide 4</a>
+      </li>
+    </ol>
+  </aside>
+</section>
+
+<br />
+
 </div>
 
-<div style="display:none;">
-  <h1 id="lat"></h1>
-  <h1 style="color:red;">41.8213485,-71.4156095</h1>
-</div>
 <a onclick="showPortal('https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked-progressive.jpg');window.navigator.vibrate([50,50,50]);">Test Portal</a>
 
 <script>
 
 let locations = [
-  { name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg', audio: 'audio/mapogu.m4a'},
+//  { name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg', audio: 'audio/mapogu.m4a'},
   { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-empire-stacked-progressive.jpg'},
   { name: 'Providence Burrill St. Chinatown', lat: 41.820647, lng: -71.415001, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked-progressive.jpg'},
   { name: 'Portland Chinese Vegetable Gardens', lat: 45.520291, lng: -122.692254, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
@@ -91,6 +158,8 @@ function showPortal(src) {
   portal.style.width = '80vw';
   portal.style.height = '80vw';
   portal.style['border-radius'] = '500px';
+  $('.a-enter-vr-button').style.display = "none"
+  $('.a-enter-ar-button').style.display = "none"
 }
 function portalGrow(src) {
   el.style.left = 0;
@@ -106,6 +175,8 @@ function portalGrow(src) {
     }, false);
     audioEl.play();
   }
+  $('.a-enter-vr-button').style.display = ""
+  $('.a-enter-ar-button').style.display = ""
 }
 function hidePortal() {
   el.style.left = '50%';
@@ -133,7 +204,7 @@ let count = 0, // delete this, it's debug
 if (navigator.geolocation) {
   navigator.geolocation.watchPosition((position) => {
       let foundPortal = false, isNearPortal = false;
-      document.getElementById('lat').innerHTML = position.coords.latitude + ',' + position.coords.longitude + '<br />'+ count;
+      //document.getElementById('lat').innerHTML = position.coords.latitude + ',' + position.coords.longitude + '<br />'+ count;
       count = count + 1;
       // detect if we're closeness*5 near a portal
       locations.forEach(function(loc) {
@@ -144,7 +215,7 @@ if (navigator.geolocation) {
           }
         }
       })
-      if (isNearPortal) {
+      if (isNearPortal && !foundPortal) {
         document.body.classList.add('crt');
         window.navigator.vibrate([50,50,50]);
       } else {
