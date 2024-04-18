@@ -8,7 +8,7 @@
   top: auto !important;
 }
 
-@media (height < 81vw) {
+@media (height < 500px) {
   .a-enter-vr, .a-enter-ar {
     display:none;
   }
