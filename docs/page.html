@@ -25,6 +25,11 @@ X buzz or flicker when in closeness*5 distance?
 - after 3m open portal if near
 - per-site closeness value
 - debug audio not turning off
+- height of text under carousel
+- fix portal to top of viewport, not page
+    - use sticky?
+
+- rename carousel anchors by place #pachappa
 
 - try preloading imgs with onLoad() ( preloading is already done somehow? Caching?)
 - do it when in closeness*5 distance?
@@ -32,6 +37,7 @@ X buzz or flicker when in closeness*5 distance?
 - figure out compass orientation - switch to photo-sphere-viewer
 -->
 <div class="text">
+
 <h1>Hidden<br />Portals</h1>
 
 <p>At the sites of 5 historical erased communities of color, portals have been hidden in plain sight. When you approach, the portals will open, allowing a glimpse into virtually reconstructed, immersive moments from their pasts which I and my collaborators have spent the past two years crafting from archival records and photographs, oral histories and other clues.</p> 
@@ -41,139 +47,113 @@ X buzz or flicker when in closeness*5 distance?
 <p>These hidden worlds are, by necessity, partial, fleeting, and speculative to varying degrees. In the spirit of Saidiya Hartman’s critical fabulation and the speculative fiction of Linda Sue Park, we have focused on the sensory experiences of place – those knowledges most likely to survive by remaining hidden – rather than the dates and historical facts. By placing these worlds – these reconstructions of lost enclaves – in unmarked spots, I hope they will resist denials, misunderstandings, exoticizing gazes, and re-displacement, through their insubstantial and ghostly presence, impossible to drive out.</p>
 
 <p>Hidden Portals is part of the <a href="https://libraryofcongress.github.io/seeing-lost-enclaves/">Seeing Lost Enclaves</a> project by <a href="https://unterbahn.com">Jeffrey Yoo Warren</a> 2023 Innovator in Residence at the Library of Congress.</p>
-</div>
 
 <br />
 
+<h2>How we got here</h2>
 
-<div class="sites text">
+<p>In the 1870s, Chinese Americans across the west coast were violently driven from their homes by groups such as the Caucasian League, often with the support or involvement of city officials and courts of law. <a href="https://libraryofcongress.github.io/seeing-lost-enclaves/">Seeing Lost Enclaves</a> reconnects Asian Americans with a time when we were profoundly unwelcome, but these harms are not the main focus of my work. Rather, by reconstructing the textures and stories of their lives, and immersing ourselves in the worlds of these long-ago communities, we can better understand ourselves and the more just and joyful futures we are crafting today. Each of these sites is also on the land of Native tribes and peoples.</p>
+
+<br />
+
+</div>
+
+<div class="sites">
 
 <h2>Sites</h2>
 
-<h3>Providence, Rhode Island: Empire Street Chinatown, c1910</h3>
+<p>
+<a onClick="scrollAcross('providence')">Providence</a>
+<a onClick="scrollAcross('portland')">Portland</a>
+<a onClick="scrollAcross('hanford')" href="#hanford">Hanford</a>
+<a onClick="scrollAcross('pachappa')">Pachappa</a>
+<a onClick="scrollAcross('truckee')" href="#truckee">Truckee</a>
+</p>
 
-<p>Providence had a vibrant Chinese American neighborhood on both Burrill Street and Empire Street between c1880-1914, but successive displacements pushed the community out of downtown by 1914.</p>
+<ul class="swipe">
 
-<p>Some in the community were escaping racist violence across the West Coast, including Taw Foo, who moved from Portland, and grew heritage vegetables on a plot outside of town. The community included musicians, chefs, pharmacists, and members of a local church choir. Tucked into small private alleys were a tea shop, several groceries, and a restaurant called Yick’s.</p>
+<li class="item" id="providence">
+  <img src="sites/providence.jpg" />
+  <h3>Providence, Rhode Island: Empire Street Chinatown, c1910</h3>
+  <p>Providence had a vibrant Chinese American neighborhood on both Burrill Street and Empire Street between c1880-1914, but successive displacements pushed the community out of downtown by 1914.</p>
+  <p>Some in the community were escaping racist violence across the West Coast, including Taw Foo, who moved from Portland, and grew heritage vegetables on a plot outside of town. The community included musicians, chefs, pharmacists, and members of a local church choir. Tucked into small private alleys were a tea shop, several groceries, and a restaurant called Yick’s.</p>
+  <p>Visit the portal <a href="https://maps.app.goo.gl/wyP5kpxEHZ2viaEBA">at the original site in Providence, Rhode Island</a>.</p>
+  <img src="sites/providence-loc.jpg" />
+  <p>This portal is also viewable at the Library of Congress' <a href="https://maps.app.goo.gl/hw7NJhNiQRquZAPUA">Madison Building interior atrium</a>.</p>
+</li>
 
-<p>Visit the portal <a href="https://maps.app.goo.gl/wyP5kpxEHZ2viaEBA">at the original site in Providence</a>, and <a href="https://maps.app.goo.gl/u9Wm1zy1scNj7QDF7">at the Library of Congress</a>.
+<li class="item" id="portland">
+  <img src="sites/portland.jpg" />
+  <h3>Portland, Oregon: Chinese Vegetable Gardens, c1901</h3>
+  <p>On the west side of Portland, at the present site of the Multnomah Athletic Club and Lincoln High School, a small farming village lived along the banks of Tanner Creek from the 1870s through the early 1900s. Today it is covered by many feet of infill, but by 1900, dozens of small buildings clustered on the hill overlooking the creek, where you could see crops growing in lush fields on the steep hillsides, and clothes hung out to dry.</p>
+  <p>This portal was created in collaboration with <a href="https://hellodri.itch.io/">Dri Chiu Tattersfield</a>
+  <p>Visit the portal <a href="https://maps.app.goo.gl/oKGT4ZoJsMZj9f3f7">at the original site in Portland, Oregon</a>.</p>
+  <img src="sites/portland-loc.jpg" />
+  <p>This portal is also viewable at the Library of Congress' <a href="https://maps.app.goo.gl/hw7NJhNiQRquZAPUA">Jefferson Building Southwest Courtyard</a>.</p>
+</li>
+
+<li class="item" id="hanford">
+  <img src="sites/hanford.jpg" />
+  <h3>Hanford, California: China Alley, c1892</h3>
+  <p>The Taoist Temple is still stewarded by descendants of the neighborhood called China Alley in Hanford, California. As artist Evelyn Yin writes: "The town of Hanford was formed in 1877 when the Southern Pacific Railroad extended into California's San Joaquin Valley. Many Chinese laborers came to work on the tracks, and later stayed for farming. They were mostly from Sam Yup (三邑 sānyì), the three former counties of Namhoi (南海 nánhǎi), Poonyu (番禺 pānyú) and Shuntak (顺德 shùndé) in Canton — now known as Guǎngdōng 广东 — province. China Alley prospered to include restaurants, homes, boarding houses, general merchandise stores, herb shops, gambling establishments, a Chinese school, and a temple. Over 100 years later, the brick buildings remain largely intact and unaltered."</p>
+  <p>Visit the portal <a href="https://maps.app.goo.gl/oKGT4ZoJsMZj9f3f7">at the original site in Portland, Oregon</a>.</p>
+  <img src="sites/hanford-loc.jpg" />
+  <p>This portal is also viewable at the Library of Congress' <a href="">Madison Builidng, Geography and Maps Division lobby</a>.</p>
+</li>
+
+<li class="item" id="pachappa">
+  <img src="sites/pachappa.jpg" />
+  <h3>Riverside, California: Pachappa Camp, c1912</h3>
+  <p>In 1908, Pachappa Camp was established in Riverside, CA during the beginning of the occupation of Korea by the Empire of Japan, and played a role in independence organizing by early Korean Americans. Families built a small community and earned money by picking citrus. Photos of residents include children playing baseball and track, riding bicycles, learning trumpet and playing among the chrysanthemums the community grew.</p>
+  <p>Visit the portal <a href="https://maps.app.goo.gl/oKGT4ZoJsMZj9f3f7">at the original site in Portland, Oregon</a>, and <a href="https://maps.app.goo.gl/hw7NJhNiQRquZAPUA">at the Library of Congress</a>.</p>
+  <img src="sites/pachappa-loc.jpg" />
+  <p>This portal is also viewable at the Library of Congress' <a href="">Madison Builidng northwest terrace</a>.</p>
+</li>
+
+<li class="item" id="truckee">
+  <img src="sites/truckee.jpg" />
+  <h3>Truckee, California: Chinatown, c1870</h3>
+  <p>In 1870, more than a quarter of the population of Truckee was Chinese American, and a bustling Chinatown included 11 groceries, as well as tea shops, doctor’s offices, gardens, and a bath house.</p> 
+  <p>Truckee’s Chinatowns were subject to racist treatment, and were burnt down repeatedly until 1886, when most Chinese Americans left. Some relocated to Oroville and other areas, where they found relative safety and prosperity. Today, descendants of the Fong Lee family business in Truckee continue to trace their history back over 140 generations, and still remember their years in Truckee and the home they were able to make there.</p>
+  <p>Visit the portal <a href="https://maps.app.goo.gl/oKGT4ZoJsMZj9f3f7">at the original site in Portland, Oregon</a>.</p>
+  <img src="sites/truckee-loc.jpg" />
+  <p>This portal is also viewable at the Library of Congress' <a href="">Adams Building south patio</a>.</p>
+</li>
+
+</ul>
 
 </div>
 
 
 
 <br />
-
-<h2>Portal sites</h2>
-
-<section class="carousel" aria-label="Gallery">
-  <ol class="carousel__viewport">
-    <li id="carousel__slide1"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper">
-        <a href="#carousel__slide4"
-           class="carousel__prev">Go to last slide</a>
-        <a href="#carousel__slide2"
-           class="carousel__next">Go to next slide</a>
-      </div>
-
-<img src="sites/providence-loc.jpg" />
-<h3>Providence, Rhode Island: Empire Street Chinatown, c1910</h3>
-
-<p>Providence had a vibrant Chinese American neighborhood on both Burrill Street and Empire Street between c1880-1914, but successive displacements pushed the community out of downtown by 1914.</p>
-
-<p>Some in the community were escaping racist violence across the West Coast, including Taw Foo, who moved from Portland, and grew heritage vegetables on a plot outside of town. The community included musicians, chefs, pharmacists, and members of a local church choir. Tucked into small private alleys were a tea shop, several groceries, and a restaurant called Yick’s.</p>
-
-<p>Visit the portal <a href="https://maps.app.goo.gl/wyP5kpxEHZ2viaEBA">at the original site in Providence</a>, and <a href="https://maps.app.goo.gl/u9Wm1zy1scNj7QDF7">at the Library of Congress</a>.
-
-    </li>
-    <li id="carousel__slide2"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide1"
-         class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide3"
-         class="carousel__next">Go to next slide</a>
-
-<img src="sites/portland-loc.jpg" />
-<h3>Portland, Oregon: Chinese Vegetable Gardens, c1901</h3>
-
-    </li>
-    <li id="carousel__slide3"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide2"
-         class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide4"
-         class="carousel__next">Go to next slide</a>
-
-<img src="sites/hanford-loc.jpg" />
-<h3>Hanford, California: China Alley, c1892</h3>
-
-    </li>
-    <li id="carousel__slide4"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide3"
-         class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide5"
-         class="carousel__next">Go to first slide</a>
-
-<img src="sites/pachappa-loc.jpg" />
-<h3>Riverside, California: Pachappa Camp, c1912</h3>
-
-    </li>
-    <li id="carousel__slide5"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide4"
-         class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide1"
-         class="carousel__next">Go to first slide</a>
-
-<img src="sites/truckee-loc.jpg" />
-<h3>Truckee, California: Chinatown, c1870</h3>
-
-    </li>
-  </ol>
-  <aside class="carousel__navigation">
-    <ol class="carousel__navigation-list">
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide1"
-           class="carousel__navigation-button">Go to slide 1</a>
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide2"
-           class="carousel__navigation-button">Go to slide 2</a>
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide3"
-           class="carousel__navigation-button">Go to slide 3</a>
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide4"
-           class="carousel__navigation-button">Go to slide 4</a>
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide5"
-           class="carousel__navigation-button">Go to slide 5</a>
-      </li>
-    </ol>
-  </aside>
-</section>
-
+<hr />
 <br />
 
+<div class="text">
+<div>
+
+<h2>This land</h2>
+
+<p>Each of these sites are on Native land: the Narragansett (Providence), the Northern Paiute and Wá∙šiw (Truckee), Multnomah, Clackamas, and Watlata/Cascade, Kathlamet, Tumwater, and Tualatin Kalapuya (Portland), Yokut (Hanford), Ɂívil̃uwenetem Meytémak (Cahuilla), Gabrielino/Tongva, Payómkawichum/Luiseño (Riverside).</p>
+
 </div>
+
+</div>
+
+<br />
+<br />
+<br />
 
 <a onclick="showPortal('https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked-progressive.jpg');window.navigator.vibrate([50,50,50]);">Test Portal</a>
 
+</div>
+
 <script>
+
+function scrollAcross(id) {
+  document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+}
 
 let locations = [
 //  { name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg', audio: 'audio/mapogu.m4a'},
