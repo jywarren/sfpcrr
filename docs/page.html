@@ -18,6 +18,7 @@
 
 <!-- TODO
 X buzz or flicker when in closeness*5 distance?
+X rename carousel anchors by place #pachappa
 
 - debug portals closing aggressively
 
@@ -29,7 +30,7 @@ X buzz or flicker when in closeness*5 distance?
 - fix portal to top of viewport, not page
     - use sticky?
 
-- rename carousel anchors by place #pachappa
+- carousel hash override - do it ourselves, so we can also detect and do it smoothly and centered?
 
 - try preloading imgs with onLoad() ( preloading is already done somehow? Caching?)
 - do it when in closeness*5 distance?
@@ -73,6 +74,13 @@ X buzz or flicker when in closeness*5 distance?
 </p>
 
 <ul class="swipe">
+
+<!--
+<li class="item" id="map">
+  <img src="sites/map.png" />
+  <h3>At the Library of Congress</h3>
+</li>
+-->
 
 <li class="item" id="providence">
   <img src="sites/providence.jpg" />
@@ -155,10 +163,15 @@ X buzz or flicker when in closeness*5 distance?
 
 function scrollAcross(id) {
   document.getElementById(id).scrollIntoView({behavior: 'smooth', block: "nearest", inline: 'center'});
+  //location.hash = id;
 }
 
+if (window.location.hash != "") {
+  scrollAcross(window.location.hash.split('#')[1]);
+} 
+
 let locations = [
-//  { name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg', audio: 'audio/mapogu.m4a'},
+  { name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg', audio: 'audio/mapogu.m4a'},
   { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-empire-stacked-progressive.jpg'},
   { name: 'Providence Burrill St. Chinatown', lat: 41.820647, lng: -71.415001, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked-progressive.jpg'},
   { name: 'Portland Chinese Vegetable Gardens', lat: 45.520291, lng: -122.692254, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
@@ -196,8 +209,12 @@ function showPortal(src) {
   portal.style.width = '80vw';
   portal.style.height = '80vw';
   portal.style['border-radius'] = '500px';
-  $('.a-enter-vr-button').style.display = "none"
-  $('.a-enter-ar-button').style.display = "none"
+  document.querySelectorAll('.a-enter-vr').forEach(function(el) {
+   el.style.display = 'none';
+  });
+  document.querySelectorAll('.a-enter-ar').forEach(function(el) {
+   el.style.display = 'none';
+  });
 }
 function portalGrow(src) {
   el.style.left = 0;
@@ -213,8 +230,12 @@ function portalGrow(src) {
     }, false);
     audioEl.play();
   }
-  $('.a-enter-vr-button').style.display = ""
-  $('.a-enter-ar-button').style.display = ""
+  document.querySelectorAll('.a-enter-vr').forEach(function(el) {
+   el.style.display = '';
+  });
+  document.querySelectorAll('.a-enter-ar').forEach(function(el) {
+   el.style.display = '';
+  });
 }
 function hidePortal() {
   el.style.left = '50%';
