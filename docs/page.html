@@ -309,7 +309,7 @@ if (navigator.geolocation) {
         if (Math.abs(loc.lat - position.coords.latitude) < closeness * 5) {
           if (Math.abs(loc.lng - position.coords.longitude) < closeness * 5) {
             isNearPortal = true;
-            if (timeLooking > timeLimit) {
+            if (portalOpen == false && timeLooking > timeLimit) {
               console.log('just open');
               showPortal(loc.url); // just open if it's been more that 60 checks
               preservePortal = 3; // leave portal open for 3 cycles
@@ -326,8 +326,8 @@ if (navigator.geolocation) {
               showPortal(loc.url);
               if (loc.audio != audioEl.src) loadAudio(loc.audio); // if there's new audio
               preservePortal = 3; // leave portal open for 3 cycles
-             }
-             foundPortal = true;
+            }
+            foundPortal = true;
           }
         }
       })
