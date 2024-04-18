@@ -294,7 +294,7 @@ function loadAudio(src) {
 }
 
 let closeness = 0.0002; // approx 14m in US
-let timeLooking = 0;
+let timeLooking = 0, timeLimit = 10;
 let count = 0, // delete this, it's debug
     preservePortal = 0, // leave portal open on a timer
     portalOpen = false;
@@ -309,7 +309,11 @@ if (navigator.geolocation) {
         if (Math.abs(loc.lat - position.coords.latitude) < closeness * 5) {
           if (Math.abs(loc.lng - position.coords.longitude) < closeness * 5) {
             isNearPortal = true;
-            if (timeLooking > 10) { console.log('just open'); showPortal(loc.url) } // just open if it's been more that 60 checks
+            if (timeLooking > timeLimit) {
+              console.log('just open');
+              showPortal(loc.url); // just open if it's been more that 60 checks
+              preservePortal = 3; // leave portal open for 3 cycles
+            }
             if (loc.audio) loadAudio(loc.audio); // preload audio
           }
         }
@@ -330,14 +334,14 @@ if (navigator.geolocation) {
       if (isNearPortal && !foundPortal) {
         document.body.classList.add('crt');
         timeLooking += 1;
-        console.log('looking...')
+        console.log('looking...', timeLooking); 
         window.navigator.vibrate([50,50,50]);
       } else {
         document.body.classList.remove('crt');
         timeLooking = 0; // restart count
       }
       preservePortal = preservePortal - 1;
-      if (!foundPortal && preservePortal < 1) {
+      if (!foundPortal && preservePortal < 1 && timeLooking < timeLimit) {
         hidePortal();
         portalOpen = false;
       }
