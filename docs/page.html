@@ -195,7 +195,7 @@ let locations = [
 let el = document.createElement('div');
 document.body.appendChild(el);
 el.classList.add("portalDiv");
-el.style="position:absolute;z-index:999;left:50%;bottom:50%;";
+el.style="position:fixed;z-index:999;left:50%;bottom:50%;";
 el.innerHTML = '<iframe id="portal" src="https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg"></iframe>';
 el.onclick = function() { portalGrow() };
 let portal = document.getElementById('portal');
