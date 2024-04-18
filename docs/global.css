@@ -7,3 +7,9 @@
   bottom: 20px;
   top: auto !important;
 }
+
+@media (height < 81vm) {
+  .a-enter-vr, .a-enter-ar {
+    display:none;
+  }
+}
