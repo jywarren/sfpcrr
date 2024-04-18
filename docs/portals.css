@@ -55,6 +55,22 @@ iframe {
   font-size: 1.2em;
 }
 
+.btn {
+  padding:8px 10px;
+  margin: 0 4px;
+  border-radius:5px;
+  background: #ffa; 
+  color: #000;
+  text-decoration: none;
+  text-wrap: nowrap; 
+  line-height: 2.6em;
+}
+
+.btn:hover {
+  background: #ffc;
+  color: #444;
+}
+
 /* https://uxdesign.cc/creating-horizontal-scrolling-containers-the-right-way-css-grid-c256f64fc585 */
 /* https://codepen.io/dannievinther/pen/vVydZJ */
 
@@ -74,7 +90,7 @@ iframe {
   grid-template-columns: 10px;
   grid-template-rows: minmax(150px, 1fr);
   grid-auto-flow: column;
-  grid-auto-columns: calc(40% - var(--gutter) * 2);
+  grid-auto-columns: calc(66% - var(--gutter) * 2);
 
   overflow-x: scroll;
   scroll-snap-type: x proximity;
@@ -82,7 +98,11 @@ iframe {
   margin-bottom: calc(-.25 * var(--gutter));
   padding-left: 0;
 }
-
+@media (width > 900px) {
+.swipe {
+  grid-auto-columns: calc(40% - var(--gutter) * 2);
+}
+}
 @media (width < 600px) {
 .swipe {
   grid-auto-columns: calc(90% - var(--gutter) * 2);
@@ -179,7 +199,9 @@ iframe {
 .crt {
   animation: textShadow 1.6s infinite;
 }
-
+.nocrt {
+  text-shadow: none;
+}
 
 
 @keyframes tonext {
