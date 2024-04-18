@@ -19,18 +19,15 @@
 <!-- TODO
 X buzz or flicker when in closeness*5 distance?
 X rename carousel anchors by place #pachappa
-
-- debug portals closing aggressively
+X fix portal to top of viewport, not page
+X carousel hash override - do it ourselves, so we can also detect and do it smoothly and centered?
 
 - rework buzzing, stop when actually there
 - after 3m open portal if near
-- per-site closeness value
+- debug portals closing aggressively
 - debug audio not turning off
-- height of text under carousel
-- fix portal to top of viewport, not page
-    - use sticky?
 
-- carousel hash override - do it ourselves, so we can also detect and do it smoothly and centered?
+- per-site closeness value
 
 - try preloading imgs with onLoad() ( preloading is already done somehow? Caching?)
 - do it when in closeness*5 distance?
@@ -201,6 +198,7 @@ el.onclick = function() { portalGrow() };
 let portal = document.getElementById('portal');
 let audioEl = {};
 hidePortal();
+document.body.onclick = function() { hidePortal(); }
 function showPortal(src) {
   if (portal.src != src) portal.src = src;
   portalOpen = true;
@@ -270,16 +268,11 @@ if (navigator.geolocation) {
         if (Math.abs(loc.lat - position.coords.latitude) < closeness * 5) {
           if (Math.abs(loc.lng - position.coords.longitude) < closeness * 5) {
             isNearPortal = true;
+            if (timeLooking > 60) { showPortal(loc.url) } // just open if it's been more that 60 checks
             if (loc.audio) loadAudio(loc.audio); // preload audio
           }
         }
       })
-      if (isNearPortal && !foundPortal) {
-        document.body.classList.add('crt');
-        window.navigator.vibrate([50,50,50]);
-      } else {
-        document.body.classList.remove('crt');
-      }
       // compare and we should be within ~7m or 0.0001 degrees to match 
       locations.forEach(function(loc) {
         if (Math.abs(loc.lat - position.coords.latitude) < closeness) {
@@ -293,6 +286,13 @@ if (navigator.geolocation) {
           }
         }
       })
+      if (isNearPortal && !foundPortal) {
+        document.body.classList.add('crt');
+        timeLooking += 1;
+        window.navigator.vibrate([50,50,50]);
+      } else {
+        document.body.classList.remove('crt');
+      }
       preservePortal = preservePortal - 1;
       if (!foundPortal && preservePortal < 1) {
         hidePortal();
