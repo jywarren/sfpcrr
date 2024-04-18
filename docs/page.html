@@ -12,7 +12,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&family=Oswald:wght@200..700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-
 <style>
 </style>
 
@@ -42,13 +41,21 @@ X carousel hash override - do it ourselves, so we can also detect and do it smoo
 
 <p>Our experiences sifting through archival clues has also revealed how these stories have been historically hidden within archival collections. Recognizing this, portals have also been created in and around the Library of Congress in Washington, DC.</p>
 
+<!-- NAVIGATION -->
+
+<p class="nav">
+<a href="#sites">Sites</a> | 
+<a href="#how">How it works</a> | 
+<a href="#why">Why</a> 
+</p>
+
 <p>These hidden worlds are, by necessity, partial, fleeting, and speculative to varying degrees. In the spirit of Saidiya Hartman’s critical fabulation and the speculative fiction of Linda Sue Park, we have focused on the sensory experiences of place – those knowledges most likely to survive by remaining hidden – rather than the dates and historical facts. By placing these worlds – these reconstructions of lost enclaves – in unmarked spots, I hope they will resist denials, misunderstandings, exoticizing gazes, and re-displacement, through their insubstantial and ghostly presence, impossible to drive out.</p>
 
 <p>Hidden Portals is part of the <a href="https://libraryofcongress.github.io/seeing-lost-enclaves/">Seeing Lost Enclaves</a> project by <a href="https://unterbahn.com">Jeffrey Yoo Warren</a> 2023 Innovator in Residence at the Library of Congress.</p>
 
 <br />
 
-<h2>How we got here</h2>
+<h2 id="history">How we got here</h2>
 
 <p>In the 1870s, Chinese Americans across the west coast were violently driven from their homes by groups such as the Caucasian League, often with the support or involvement of city officials and courts of law. <a href="https://libraryofcongress.github.io/seeing-lost-enclaves/">Seeing Lost Enclaves</a> reconnects Asian Americans with a time when we were profoundly unwelcome, but these harms are not the main focus of my work. Rather, by reconstructing the textures and stories of their lives, and immersing ourselves in the worlds of these long-ago communities, we can better understand ourselves and the more just and joyful futures we are crafting today. Each of these sites is also on the land of Native tribes and peoples.</p>
 
@@ -58,9 +65,9 @@ X carousel hash override - do it ourselves, so we can also detect and do it smoo
 
 <div class="sites">
 
-<h2>Sites</h2>
+<h2 id="sites">Sites</h2>
 
-<p>Hidden Portals features five different historic Asian American communities, which you can visit at their original sites, or at the Library of Congress in Washington, DC:</p>
+<p class="text">Hidden Portals features five different historic Asian American communities, which you can visit at their original sites, or at the Library of Congress in Washington, DC:</p>
 
 <p>
 <a onClick="scrollAcross('providence')" href="javascript:void(0);">Providence</a> | 
@@ -131,20 +138,51 @@ X carousel hash override - do it ourselves, so we can also detect and do it smoo
 
 </div>
 
+<br />
+<br />
+
+<div class="text how-it-works" id="how">
+
+<h2>How it works</h2>
+
+<p>Step 1: Visit one of the sites, with the website loaded on your phone.</p>
+
+<p>Step 2: As you approach, the text of the website will begin to jitter, indicating that you’re near a portal. A slight vibration will also happen.</p>
+
+<p>Step 3: Approach to within 10 meters of the marked spot; keep the website open on your phone as you approach. A circular image will appear on your screen, and sounds will begin to play.</p>
+
+<p>Step 4: Click the circle to enter the portal.</p>
+
+<p>Step 5: Turn up the volume and/or use headphones.</p>
+
+<p>Step 6: Look around, using your phone as a window to see the reconstructed community.</p>
+
+<p>When you leave the site, the portal will close by itself.</p>
 
 
-<br />
-<hr />
-<br />
+</div>
 
 <div class="text">
-<div>
 
 <h2>This land</h2>
 
 <p>Each of these sites are on Native land: the Narragansett (Providence), the Northern Paiute and Wá∙šiw (Truckee), Multnomah, Clackamas, and Watlata/Cascade, Kathlamet, Tumwater, and Tualatin Kalapuya (Portland), Yokut (Hanford), Ɂívil̃uwenetem Meytémak (Cahuilla), Gabrielino/Tongva, Payómkawichum/Luiseño (Riverside).</p>
 
 </div>
+
+<div class="text">
+
+<h2>Who made this</h2>
+
+<p>Hidden Portals is a collaborative project: Jeffrey worked with different Asian American artists at each site:</p>
+
+<ul>
+  <li>Dri Chiu Tattersfield (Portland)</li>
+  <li>Mikki Paek (Pachappa Camp)</li>
+  <li>Vic Xu (Providence)</li>
+  <li>Vuthy Lay (Providence)</li>
+  <li>Evelyn Hang Yin (Hanford)</li>
+</ul>
 
 </div>
 
@@ -168,7 +206,8 @@ if (window.location.hash != "") {
 } 
 
 let locations = [
-  { name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg', audio: 'audio/mapogu.m4a'},
+  //{ name: 'Providence Coal Fired Pizza', lat: 41.82129802473228, lng: -71.41502773093613, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg', audio: 'audio/mapogu.m4a'},
+  { name: 'Providence Coal Fired Pizza', lat: 41.82149997128618, lng: -71.4147083014786, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg', audio: 'audio/mapogu.m4a'},
   { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-empire-stacked-progressive.jpg'},
   { name: 'Providence Burrill St. Chinatown', lat: 41.820647, lng: -71.415001, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked-progressive.jpg'},
   { name: 'Portland Chinese Vegetable Gardens', lat: 45.520291, lng: -122.692254, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
@@ -177,6 +216,7 @@ let locations = [
   { name: 'LOC Madison', lat: 38.887369, lng: -77.005503, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
   { name: 'LOC Madison Courtyard', lat: 38.8867524, lng: -77.0047272, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-empire-stacked-progressive.jpg', audio: 'audio/portland.m4a'},
   { name: 'LOC Jefferson Courtyard', lat: 38.88846874367604, lng: -77.00489686567619, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
+  { name: 'LOC Jefferson Lawn', lat: 38.88781245768495, lng: -77.00477273819244, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
   { name: 'LOC G&M', lat: 38.88695681049907, lng: -77.00469312973286, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/hanford-sunset-stacked.jpg', audio: 'audio/portland.m4a'},
   { name: 'Portland Chinese Vegetable Gardens', lat: 45.520269721339204, lng: -122.6921961678906, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
   { name: 'Pachappa Camp', lat: 33.971627, lng: -117.371908, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/pachappa-render-test-stacked.jpg', audio: 'audio/portland.m4a'},
@@ -198,7 +238,7 @@ el.onclick = function() { portalGrow() };
 let portal = document.getElementById('portal');
 let audioEl = {};
 hidePortal();
-document.body.onclick = function() { hidePortal(); }
+
 function showPortal(src) {
   if (portal.src != src) portal.src = src;
   portalOpen = true;
@@ -244,7 +284,7 @@ function hidePortal() {
   portal.style['pointer-events'] = 'none';
   if (audioEl.hasOwnProperty(stop)) {
     audioEl.stop();
-  } else { console.log('couldnt stop'); }
+  } else { console.log('couldnt stop audio'); }
 }
 function loadAudio(src) {
   audioEl = new Audio(src);
@@ -254,6 +294,7 @@ function loadAudio(src) {
 }
 
 let closeness = 0.0002; // approx 14m in US
+let timeLooking = 0;
 let count = 0, // delete this, it's debug
     preservePortal = 0, // leave portal open on a timer
     portalOpen = false;
@@ -268,7 +309,7 @@ if (navigator.geolocation) {
         if (Math.abs(loc.lat - position.coords.latitude) < closeness * 5) {
           if (Math.abs(loc.lng - position.coords.longitude) < closeness * 5) {
             isNearPortal = true;
-            if (timeLooking > 60) { showPortal(loc.url) } // just open if it's been more that 60 checks
+            if (timeLooking > 10) { console.log('just open'); showPortal(loc.url) } // just open if it's been more that 60 checks
             if (loc.audio) loadAudio(loc.audio); // preload audio
           }
         }
@@ -289,9 +330,11 @@ if (navigator.geolocation) {
       if (isNearPortal && !foundPortal) {
         document.body.classList.add('crt');
         timeLooking += 1;
+        console.log('looking...')
         window.navigator.vibrate([50,50,50]);
       } else {
         document.body.classList.remove('crt');
+        timeLooking = 0; // restart count
       }
       preservePortal = preservePortal - 1;
       if (!foundPortal && preservePortal < 1) {

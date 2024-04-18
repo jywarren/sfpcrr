@@ -47,13 +47,21 @@ iframe {
   transition: all 2s ease-out;
 }
 
-/* for carousel */
-:root {
-  --gutter: 20px;
+.nav {
+  margin: 20px 0;
+  font-size: 1.4em;
+}
+.how-it-works p {
+  font-size: 1.2em;
 }
 
 /* https://uxdesign.cc/creating-horizontal-scrolling-containers-the-right-way-css-grid-c256f64fc585 */
 /* https://codepen.io/dannievinther/pen/vVydZJ */
+
+/* for carousel */
+:root {
+  --gutter: 20px;
+}
 
 .text > * {
   grid-column: 2 / -2;
