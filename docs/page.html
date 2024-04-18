@@ -40,9 +40,9 @@ X buzz or flicker when in closeness*5 distance?
 
 <h1>Hidden<br />Portals</h1>
 
-<p>At the sites of 5 historical erased communities of color, portals have been hidden in plain sight. When you approach, the portals will open, allowing a glimpse into virtually reconstructed, immersive moments from their pasts which I and my collaborators have spent the past two years crafting from archival records and photographs, oral histories and other clues.</p> 
+<p>At the sites of 5 historical erased Asian American communities, portals have been hidden in plain sight. When you approach, the portals will open, allowing a glimpse into virtually reconstructed, immersive moments from their pasts which I and my collaborators have spent the past two years crafting from archival records and photographs, oral histories and other clues.</p> 
 
-<p>Our experiences sifting through archival clues has also revealed how these stories have been historically invisibilized within archival collections. Recognizing this, portals have also been created in and around the Library of Congress in Washington, DC.</p>
+<p>Our experiences sifting through archival clues has also revealed how these stories have been historically hidden within archival collections. Recognizing this, portals have also been created in and around the Library of Congress in Washington, DC.</p>
 
 <p>These hidden worlds are, by necessity, partial, fleeting, and speculative to varying degrees. In the spirit of Saidiya Hartman’s critical fabulation and the speculative fiction of Linda Sue Park, we have focused on the sensory experiences of place – those knowledges most likely to survive by remaining hidden – rather than the dates and historical facts. By placing these worlds – these reconstructions of lost enclaves – in unmarked spots, I hope they will resist denials, misunderstandings, exoticizing gazes, and re-displacement, through their insubstantial and ghostly presence, impossible to drive out.</p>
 
@@ -62,12 +62,14 @@ X buzz or flicker when in closeness*5 distance?
 
 <h2>Sites</h2>
 
+<p>Hidden Portals features five different historic Asian American communities, which you can visit at their original sites, or at the Library of Congress in Washington, DC:</p>
+
 <p>
-<a onClick="scrollAcross('providence')">Providence</a>
-<a onClick="scrollAcross('portland')">Portland</a>
-<a onClick="scrollAcross('hanford')" href="#hanford">Hanford</a>
-<a onClick="scrollAcross('pachappa')">Pachappa</a>
-<a onClick="scrollAcross('truckee')" href="#truckee">Truckee</a>
+<a onClick="scrollAcross('providence')" href="javascript:void(0);">Providence</a> | 
+<a onClick="scrollAcross('portland')" href="javascript:void(0);">Portland</a> | 
+<a onClick="scrollAcross('hanford')" href="javascript:void(0);">Hanford</a> | 
+<a onClick="scrollAcross('pachappa')" href="javascript:void(0);">Pachappa</a> | 
+<a onClick="scrollAcross('truckee')" href="javascript:void(0);">Truckee</a>
 </p>
 
 <ul class="swipe">
@@ -152,7 +154,7 @@ X buzz or flicker when in closeness*5 distance?
 <script>
 
 function scrollAcross(id) {
-  document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+  document.getElementById(id).scrollIntoView({behavior: 'smooth', block: "nearest", inline: 'center'});
 }
 
 let locations = [

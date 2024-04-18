@@ -3,10 +3,11 @@ body {
   text-align: center;
   background: #222;
   color: white;
-  padding: 7%;
+  padding: 0%;
   padding-top: 20%;
 }
 .text {
+  padding: 0 7%;
   max-width: 400px;
   margin: auto;
 }
