@@ -15,7 +15,8 @@ let count = 0, // delete this, it's debug
     portalOpen = false;
 
 function scrollAcross(id) {
-  document.getElementById(id).scrollIntoView({behavior: 'smooth', block: "nearest", inline: 'center'});
+  let el = document.getElementById(id)
+  if (el) el.scrollIntoView({behavior: 'smooth', block: "nearest", inline: 'center'});
   //location.hash = id;
 }
 
