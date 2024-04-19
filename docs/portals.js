@@ -1,3 +1,26 @@
+/*
+X buzz or flicker when in closeness*5 distance?
+X rename carousel anchors by place #pachappa
+X fix portal to top of viewport, not page
+X carousel hash override - do it ourselves, so we can also detect and do it smoothly and centered?
+
+- rework buzzing, stop when actually there
+
+- TEST after 3m open portal if near - TEST ON SITE
+  - closes?? (maybe after 3 persist?)
+
+- debug audio not turning off
+
+- TEST test portal closing aggressively (fixed with persistance?)
+- per-site closeness value
+
+- try preloading imgs with onLoad() ( preloading is already done somehow? Caching?)
+- do it when in closeness*5 distance?
+- audio preloading ?
+- figure out compass orientation - switch to photo-sphere-viewer
+*/
+
+
 let el = document.createElement('div');
 document.body.appendChild(el);
 el.classList.add("portalDiv");
@@ -144,7 +167,7 @@ if (navigator.geolocation) {
         document.body.classList.add('crt');
         timeLooking += 1;
         console.log('looking...', timeLooking); 
-        window.navigator.vibrate([50,50,50]);
+        if (!preservePortal < 1) window.navigator.vibrate([50,50,50]);
       } else {
         document.body.classList.remove('crt');
         timeLooking = 0; // restart count
