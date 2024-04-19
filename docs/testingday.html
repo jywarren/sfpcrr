@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hidden Portals</title>
+</head>
+<body>
+<link rel="stylesheet" href="portals.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&family=Oswald:wght@200..700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<script src="portals.js"></script>
+
+<!-- TODO
+X buzz or flicker when in closeness*5 distance?
+X rename carousel anchors by place #pachappa
+X fix portal to top of viewport, not page
+X carousel hash override - do it ourselves, so we can also detect and do it smoothly and centered?
+
+- rework buzzing, stop when actually there
+- after 3m open portal if near
+- debug portals closing aggressively
+- debug audio not turning off
+
+- per-site closeness value
+
+- try preloading imgs with onLoad() ( preloading is already done somehow? Caching?)
+- do it when in closeness*5 distance?
+- audio preloading ?
+- figure out compass orientation - switch to photo-sphere-viewer
+-->
+<div class="text">
+
+<h1>Hidden<br />Portals</h1>
+
+<p>At the sites of 5 historical erased Asian American communities, portals have been hidden in plain sight. When you approach, the portals will open, allowing a glimpse into virtually reconstructed, immersive moments from their pasts which I and my collaborators have spent the past two years crafting from archival records and photographs, oral histories and other clues.</p> 
+
+<p>Our experiences sifting through archival clues has also revealed how these stories have been historically hidden within archival collections. Recognizing this, portals have also been created in and around the Library of Congress in Washington, DC.</p>
+
+<!-- NAVIGATION -->
+
+<p class="nav">
+<a href="#sites">Sites</a> | 
+<a href="#how">How it works</a> | 
+<a href="#who">Who</a> 
+</p>
+
+<p>These hidden worlds are, by necessity, partial, fleeting, and speculative to varying degrees. In the spirit of Saidiya Hartman’s critical fabulation and the speculative fiction of Linda Sue Park, we have focused on the sensory experiences of place – those knowledges most likely to survive by remaining hidden – rather than the dates and historical facts. By placing these worlds – these reconstructions of lost enclaves – in unmarked spots, I hope they will resist denials, misunderstandings, exoticizing gazes, and re-displacement, through their insubstantial and ghostly presence, impossible to drive out.</p>
+
+<p>Hidden Portals is part of the <a href="https://libraryofcongress.github.io/seeing-lost-enclaves/">Seeing Lost Enclaves</a> project by <a href="https://unterbahn.com">Jeffrey Yoo Warren</a> 2023 Innovator in Residence at the Library of Congress.</p>
+
+<br />
+
+<h2 id="history">How we got here</h2>
+
+<p>In the 1870s, Chinese Americans across the west coast were violently driven from their homes by groups such as the Caucasian League, often with the support or involvement of city officials and courts of law. <a href="https://libraryofcongress.github.io/seeing-lost-enclaves/">Seeing Lost Enclaves</a> reconnects Asian Americans with a time when we were profoundly unwelcome, but these harms are not the main focus of my work. Rather, by reconstructing the textures and stories of their lives, and immersing ourselves in the worlds of these long-ago communities, we can better understand ourselves and the more just and joyful futures we are crafting today. Each of these sites is also on the land of Native tribes and peoples.</p>
+
+<br />
+
+</div>
+
+<div class="sites">
+
+<h2 id="sites">Sites</h2>
+
+<p class="text">Hidden Portals features five different historic Asian American communities, which you can visit at their original sites, or at the Library of Congress in Washington, DC:</p>
+
+<p>
+<a onClick="scrollAcross('providence')" href="javascript:void(0);">Providence</a> | 
+<a onClick="scrollAcross('portland')" href="javascript:void(0);">Portland</a> | 
+<a onClick="scrollAcross('hanford')" href="javascript:void(0);">Hanford</a> | 
+<a onClick="scrollAcross('pachappa')" href="javascript:void(0);">Pachappa</a> | 
+<a onClick="scrollAcross('truckee')" href="javascript:void(0);">Truckee</a>
+</p>
+
+<ul class="swipe nocrt">
+
+<!--
+<li class="item" id="map">
+  <img src="sites/map.jpg" />
+  <h3>At the Library of Congress</h3>
+</li>
+-->
+
+<li class="item" id="providence">
+  <img src="sites/providence.jpg" />
+  <h3>Providence, Rhode Island: Empire Street Chinatown, c1910</h3>
+  <p>Providence had a vibrant Chinese American neighborhood on both Burrill Street and Empire Street between c1880-1914, but successive displacements pushed the community out of downtown by 1914.</p>
+  <p>Some in the community were escaping racist violence across the West Coast, including Taw Foo, who moved from Portland, and grew heritage vegetables on a plot outside of town. The community included musicians, chefs, pharmacists, and members of a local church choir. Tucked into small private alleys were a tea shop, several groceries, and a restaurant called Yick’s.</p>
+  <p>This portal was created in collaboration with <a href="https://hellodri.itch.io/">Dri Chiu Tattersfield</a>
+  <p>Visit the portal at the original site or at the Library of Congress:</p>
+  <p>
+    <a class="btn" href="https://maps.app.goo.gl/wyP5kpxEHZ2viaEBA">📍 Providence, RI</a> 
+    <a class="btn" href="https://maps.app.goo.gl/hw7NJhNiQRquZAPUA">📍 LOC Madison Building interior atrium</a>
+  </p>
+  <img src="sites/providence-loc.jpg" />
+</li>
+
+<li class="item" id="portland">
+  <img src="sites/portland.jpg" />
+  <h3>Portland, Oregon: Chinese Vegetable Gardens, c1901</h3>
+  <p>On the west side of Portland, at the present site of the Multnomah Athletic Club and Lincoln High School, a small farming village lived along the banks of Tanner Creek from the 1870s through the early 1900s. Today it is covered by many feet of infill, but by 1900, dozens of small buildings clustered on the hill overlooking the creek, where you could see crops growing in lush fields on the steep hillsides, and clothes hung out to dry.</p>
+  <p>This portal was created in collaboration with <a href="https://hellodri.itch.io/">Dri Chiu Tattersfield</a>
+  <p>Visit the portal at the original site or at the Library of Congress:</p>
+  <p>
+    <a class="btn" href="https://maps.app.goo.gl/hEgUqKL1XxdcoXXk8">📍 Portland, OR</a> 
+    <a class="btn" href="https://maps.app.goo.gl/j8zTXYVd8PmLWsXs5">📍 LOC Jefferson Building south walkway</a>
+  </p>
+  <img src="sites/portland-loc.jpg" />
+</li>
+
+<li class="item" id="hanford">
+  <img src="sites/hanford.jpg" />
+  <h3>Hanford, California: China Alley, c1892</h3>
+  <p>The Taoist Temple is still stewarded by descendants of the neighborhood called China Alley in Hanford, California. As artist Evelyn Yin writes: "The town of Hanford was formed in 1877 when the Southern Pacific Railroad extended into California's San Joaquin Valley. Many Chinese laborers came to work on the tracks, and later stayed for farming. They were mostly from Sam Yup (三邑 sānyì), the three former counties of Namhoi (南海 nánhǎi), Poonyu (番禺 pānyú) and Shuntak (顺德 shùndé) in Canton — now known as Guǎngdōng 广东 — province. China Alley prospered to include restaurants, homes, boarding houses, general merchandise stores, herb shops, gambling establishments, a Chinese school, and a temple. Over 100 years later, the brick buildings remain largely intact and unaltered."</p>
+  <p>Visit the portal <a href="https://maps.app.goo.gl/PJvhwsKcEhcKKta78">at the original site in Hanford, California</a>.</p>
+  <img src="sites/hanford-loc.jpg" />
+  <p>This portal is also viewable at the Library of Congress' <a href="https://maps.app.goo.gl/E4mXo2yGSAKsJKeQA">Madison Builidng, Geography and Maps Division lobby</a>.</p>
+</li>
+
+<li class="item" id="pachappa">
+  <img src="sites/pachappa.jpg" />
+  <h3>Riverside, California: Pachappa Camp, c1912</h3>
+  <p>In 1908, Pachappa Camp was established in Riverside, CA during the beginning of the occupation of Korea by the Empire of Japan, and played a role in independence organizing by early Korean Americans. Families built a small community and earned money by picking citrus. Photos of residents include children playing baseball and track, riding bicycles, learning trumpet and playing among the chrysanthemums the community grew.</p>
+  <p>Visit the portal <a href="https://maps.app.goo.gl/t7quK97YxJsqqttQ8">at the original site in Riverside, California</a>.</p>
+  <img src="sites/pachappa-loc.jpg" />
+  <p>This portal is also viewable at the Library of Congress' <a href="">Madison Builidng northwest terrace</a>.</p>
+</li>
+
+<li class="item" id="truckee">
+  <img src="sites/truckee.jpg" />
+  <h3>Truckee, California: Chinatown, c1870</h3>
+  <p>In 1870, more than a quarter of the population of Truckee was Chinese American, and a bustling Chinatown included 11 groceries, as well as tea shops, doctor’s offices, gardens, and a bath house.</p> 
+  <p>Truckee’s Chinatowns were subject to racist treatment, and were burnt down repeatedly until 1886, when most Chinese Americans left. Some relocated to Oroville and other areas, where they found relative safety and prosperity. Today, descendants of the Fong Lee family business in Truckee continue to trace their history back over 140 generations, and still remember their years in Truckee and the home they were able to make there.</p>
+  <p>Visit the portal <a href="https://maps.app.goo.gl/ZJjRQ5aaDVW895bu6">at the original site in Truckee, California</a>.</p>
+  <img src="sites/truckee-loc.jpg" />
+  <p>This portal is also viewable at the Library of Congress' <a href="https://maps.app.goo.gl/qbYpWtANbp4kvhVh8">Adams Building south patio</a>.</p>
+</li>
+
+</ul>
+
+</div>
+
+<br />
+<br />
+
+<div class="how-it-works" id="how">
+
+<h2>How it works</h2>
+
+<div class="two-columns">
+
+<div>
+  <img src="sites/1.png" />
+  <p>Step 1: Visit one of the sites, with the website loaded on your phone.</p>
+</div>
+
+<div>
+  <img src="sites/2.png" />
+  <p>Step 2: As you approach, the text of the website will begin to jitter, indicating that you’re near a portal. A slight vibration will also happen.</p>
+</div>
+
+<div>
+  <img src="sites/3.png" />
+  <p>Step 3: Approach to within 10 meters of the marked spot; keep the website open on your phone as you approach. A circular image will appear on your screen, and sounds will begin to play.</p>
+  <p>Step 4: Click the circle to enter the portal.</p>
+  <p>Step 5: Turn up the volume and/or use headphones.</p>
+</div>
+
+<div>
+  <img src="sites/4.png" />
+  <p>Step 6: Look around, using your phone as a window to see the reconstructed community.</p>
+  <p>When you leave the site, the portal will close by itself.</p>
+</div>
+
+</div>
+
+</div>
+
+<!--
+
+<h3>Collections used in this project</h3>
+
+<li>A wide variety of resources from LOC were used to create these reconstructions, in addition to local and family archives and histories. Some examples include:
+<li>Sanborn insurance maps
+<li>Many items from Prints & Photos
+<li>AAPI Community Collection (formerly Asian Division, now Manuscripts)
+
+Read more at the Seeing Lost Enclaves website.
+
+-->
+
+
+<div class="text">
+
+<h2>This land</h2>
+
+<p>Each of these sites are on Native land: the Narragansett (Providence), the Northern Paiute and Wá∙šiw (Truckee), Multnomah, Clackamas, and Watlata/Cascade, Kathlamet, Tumwater, and Tualatin Kalapuya (Portland), Yokut (Hanford), Ɂívil̃uwenetem Meytémak (Cahuilla), Gabrielino/Tongva, Payómkawichum/Luiseño (Riverside).</p>
+
+</div>
+
+<div class="text" id="who">
+
+<h2>Who made this</h2>
+
+<p>Hidden Portals is part of <a href="https://libraryofcongress.github.io/seeing-lost-enclaves/">Seeing Lost Enclaves: Relational reconstructions of erased historic neighborhoods of color</a>, by 2023 Innovator in Residence  Jeffrey Yoo Warren. This is a collaborative project: Jeffrey worked with different Asian American artists at each site:</p>
+
+<ul style="text-align:left;">
+  <li>Dri Chiu Tattersfield (Portland)</li>
+  <li>Mikki Paek (Pachappa Camp)</li>
+  <li>Vic Xu (Providence)</li>
+  <li>Vuthy Lay (Providence)</li>
+  <li>Evelyn Hang Yin (Hanford)</li>
+</ul>
+
+</div>
+
+<br />
+<br />
+<br />
+
+<a onclick="testPortal()">Test Portal</a>
+
+</div>
+
+</body>
+</html>
