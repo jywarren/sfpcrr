@@ -8,6 +8,10 @@
   top: auto !important;
 }
 
+.a-enter-ar {
+  display:none;
+}
+
 @media (height < 500px) {
   .a-enter-vr, .a-enter-ar {
     display:none;
