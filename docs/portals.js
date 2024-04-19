@@ -13,6 +13,9 @@ X TEST after 3m open portal if near - TEST ON SITE
 X TESTED - lengthen to appx 30 checks?
 - TEST 30 checks or switch to time, not iterations
 
+- test with system text mag
+- max-width images??
+
 - debug audio not turning off
 
 - TEST test portal closing aggressively (fixed with persistance?)
@@ -57,7 +60,7 @@ let locations = [
   { name: 'Providence Empire St. Chinatown', lat: 41.8213485, lng: -71.4156095, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-empire-stacked-progressive.jpg'},
   { name: 'Providence Burrill St. Chinatown', lat: 41.820647, lng: -71.415001, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-burrill-stacked-progressive.jpg'},
   { name: 'Portland Chinese Vegetable Gardens', lat: 45.520291, lng: -122.692254, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg'},
-  { name: 'Together Shovel', lat: 41.820824, lng: -71.415476, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/shovel-stacked.jpg', audio: 'audio/together-shove.mp3'},
+  { name: 'Together Shovel', lat: 41.820824, lng: -71.415476, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/shovel-stacked.jpg', audio: 'audio/together-shovel.mp3'},
   { name: 'LOC Adams', lat: 38.887752, lng: -77.002705, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/truckee-stacked.jpg', audio: 'audio/together-shovel.m4a'},
   { name: 'LOC Madison', lat: 38.887369, lng: -77.005503, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/portland-night.jpg', audio: 'audio/portland.m4a'},
   { name: 'LOC Madison Courtyard', lat: 38.8867524, lng: -77.0047272, url: 'https://jywarren.github.io/sfpcrr/?embedded&url=images/providence-empire-stacked-progressive.jpg', audio: 'audio/portland.m4a'},
