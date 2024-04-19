@@ -66,6 +66,10 @@ iframe {
   padding: 20px;
 }
 
+.loc-site {
+  display:none;
+}
+
 .btn {
   padding:8px 10px;
   margin: 0 4px;

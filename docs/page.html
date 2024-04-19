@@ -69,7 +69,7 @@
 <a onClick="scrollAcross('truckee')" href="javascript:void(0);">Truckee</a>
 </p>
 
-<p>...and at 5 corresponding spots at the <a onClick="scrollAcross('loc')" href="javascript:void(0);">Library of Congress</a>.</p>
+<p>...and at 5 corresponding spots at the <a onClick="toggleSites('loc')" href="#sites">Library of Congress</a>.</p>
 
 </div>
 
@@ -111,95 +111,85 @@
 
 <ul class="swipe nocrt">
 
+<!--
 <li class="item" id="loc">
-  <!--<img src="sites/map.jpg" /> -->
+  <img src="sites/map.jpg" />
   <h3>At the Library of Congress</h3>
   <p>Visit the portals at the Library of Congress:</p>
   <p>
-  <img src="sites/providence-loc.jpg" />
     Providence (<a href="">Read more</a>): <a class="btn" href="https://maps.app.goo.gl/j8zTXYVd8PmLWsXs5">📍 LOC Jefferson Building south lawn</a><br />
-  <img src="sites/portland-loc.jpg" />
     Portland: <a class="btn" href="https://maps.app.goo.gl/hw7NJhNiQRquZAPUA">📍 LOC Madison Building atrium</a><br />
-  <img src="sites/hanford-loc.jpg" />
     Hanford: <a class="btn" href="https://maps.app.goo.gl/E4mXo2yGSAKsJKeQA">📍 LOC Geography & Maps Division</a><br />
-  <img src="sites/pachappa-loc.jpg" />
     Riverside: <a class="btn" href="https://maps.app.goo.gl/E4mXo2yGSAKsJKeQA">📍 LOC Madison Builidng NW terrace</a><br />
-  <img src="sites/truckee-loc.jpg" />
     Truckee: <a class="btn" href="https://maps.app.goo.gl/qbYpWtANbp4kvhVh8">📍 LOC Adams Building south patio</a><br />
   <p>
 </li>
+-->
 
 <li class="item" id="providence">
   <img src="sites/providence.jpg" />
+  <img class="loc-site" src="sites/providence-loc.jpg" />
   <h3>Providence, Rhode Island: Empire Street Chinatown, c1910</h3>
-
   <p>Visit the portal at the original site or at the Library of Congress:</p>
   <p>
     <a class="btn" href="https://maps.app.goo.gl/wyP5kpxEHZ2viaEBA">📍 Providence, RI</a> 
-    <a class="btn" href="https://maps.app.goo.gl/hw7NJhNiQRquZAPUA">📍 LOC Madison Building atrium</a>
-    <a href="#loc">All LOC portals</a>
+    <a class="btn loc-site" href="https://maps.app.goo.gl/hw7NJhNiQRquZAPUA">📍 LOC Madison Building atrium</a>
   </p>
-
   <p>Providence had a vibrant Chinese American neighborhood on both Burrill Street and Empire Street between c1880-1914, but successive displacements pushed the community out of downtown by 1914.</p>
   <p>Some in the community were escaping racist violence across the West Coast, including Taw Foo, who moved from Portland, and grew heritage vegetables on a plot outside of town. The community included musicians, chefs, pharmacists, and members of a local church choir. Tucked into small private alleys were a tea shop, several groceries, and a restaurant called Yick’s.</p>
 </li>
 
 <li class="item" id="portland">
   <img src="sites/portland.jpg" />
+  <img class="loc-site" src="sites/portland-loc.jpg" />
   <h3>Portland, Oregon: Chinese Vegetable Gardens, c1901</h3>
-  <p>On the west side of Portland, at the present site of the Multnomah Athletic Club and Lincoln High School, a small farming village lived along the banks of Tanner Creek from the 1870s through the early 1900s. Today it is covered by many feet of infill, but by 1900, dozens of small buildings clustered on the hill overlooking the creek, where you could see crops growing in lush fields on the steep hillsides, and clothes hung out to dry.</p>
-  <p>This portal was created in collaboration with <a href="https://hellodri.itch.io/">Dri Chiu Tattersfield</a>
   <p>Visit the portal at the original site or at the Library of Congress:</p>
   <p>
     <a class="btn" href="https://maps.app.goo.gl/hEgUqKL1XxdcoXXk8">📍 Portland, OR</a> 
-    <a class="btn" href="https://maps.app.goo.gl/j8zTXYVd8PmLWsXs5">📍 LOC Jefferson Building south lawn</a>
-    <a href="#loc">All LOC portals</a>
+    <a class="btn loc-site" href="https://maps.app.goo.gl/j8zTXYVd8PmLWsXs5">📍 LOC Jefferson Building south lawn</a>
   </p>
+  <p>On the west side of Portland, at the present site of the Multnomah Athletic Club and Lincoln High School, a small farming village lived along the banks of Tanner Creek from the 1870s through the early 1900s. Today it is covered by many feet of infill, but by 1900, dozens of small buildings clustered on the hill overlooking the creek, where you could see crops growing in lush fields on the steep hillsides, and clothes hung out to dry.</p>
+  <p>This portal was created in collaboration with <a href="https://hellodri.itch.io/">Dri Chiu Tattersfield</a>
 </li>
 
 <li class="item" id="hanford">
   <img src="sites/hanford.jpg" />
+  <img class="loc-site" src="sites/hanford-loc.jpg" />
   <h3>Hanford, California: China Alley, c1892</h3>
-  <p>The Taoist Temple is still stewarded by descendants of the neighborhood called China Alley in Hanford, California. As artist Evelyn Yin writes: "The town of Hanford was formed in 1877 when the Southern Pacific Railroad extended into California's San Joaquin Valley. Many Chinese laborers came to work on the tracks, and later stayed for farming. They were mostly from Sam Yup (三邑 sānyì), the three former counties of Namhoi (南海 nánhǎi), Poonyu (番禺 pānyú) and Shuntak (顺德 shùndé) in Canton — now known as Guǎngdōng 广东 — province. China Alley prospered to include restaurants, homes, boarding houses, general merchandise stores, herb shops, gambling establishments, a Chinese school, and a temple. Over 100 years later, the brick buildings remain largely intact and unaltered."</p>
-  <p>This portal was created in collaboration with <a href="https://www.evelynyin.com/">Evelyn Hang Yin</a>
   <p>Visit the portal at the original site or at the Library of Congress:</p>
   <p>
     <a class="btn" href="https://maps.app.goo.gl/PJvhwsKcEhcKKta78">📍 Hanford, CA</a> 
-    <a class="btn" href="https://maps.app.goo.gl/E4mXo2yGSAKsJKeQA">📍 LOC Geography & Maps Division</a>
+    <a class="btn loc-site" href="https://maps.app.goo.gl/E4mXo2yGSAKsJKeQA">📍 LOC Geography & Maps Division</a>
   </p>
-  <p>
-    <a href="#loc">All LOC portals</a>
-  </p>
+  <p>The Taoist Temple is still stewarded by descendants of the neighborhood called China Alley in Hanford, California. As artist Evelyn Yin writes: "The town of Hanford was formed in 1877 when the Southern Pacific Railroad extended into California's San Joaquin Valley. Many Chinese laborers came to work on the tracks, and later stayed for farming. They were mostly from Sam Yup (三邑 sānyì), the three former counties of Namhoi (南海 nánhǎi), Poonyu (番禺 pānyú) and Shuntak (顺德 shùndé) in Canton — now known as Guǎngdōng 广东 — province. China Alley prospered to include restaurants, homes, boarding houses, general merchandise stores, herb shops, gambling establishments, a Chinese school, and a temple. Over 100 years later, the brick buildings remain largely intact and unaltered."</p>
+  <p>This portal was created in collaboration with <a href="https://www.evelynyin.com/">Evelyn Hang Yin</a>
 </li>
 
 <li class="item" id="pachappa">
   <img src="sites/pachappa.jpg" />
+  <img class="loc-site" src="sites/pachappa-loc.jpg" />
   <h3>Riverside, California: Pachappa Camp, c1912</h3>
-  <p>In 1908, Pachappa Camp was established in Riverside, CA during the beginning of the occupation of Korea by the Empire of Japan, and played a role in independence organizing by early Korean Americans. Families built a small community and earned money by picking citrus. Photos of residents include children playing baseball and track, riding bicycles, learning trumpet and playing among the chrysanthemums the community grew.</p>
   <p>Visit the portal at the original site or at the Library of Congress:</p>
   <p>
     <a class="btn" href="https://maps.app.goo.gl/t7quK97YxJsqqttQ8">📍 Riverside, CA</a> 
-    <a class="btn" href="https://maps.app.goo.gl/E4mXo2yGSAKsJKeQA">📍 LOC Madison Builidng NW terrace</a>
+    <a class="btn loc-site" href="https://maps.app.goo.gl/E4mXo2yGSAKsJKeQA">📍 LOC Madison Builidng NW terrace</a>
   </p>
-  <p>
-    <a href="#loc">All LOC portals</a>
-  </p>
+  <p>In 1908, Pachappa Camp was established in Riverside, CA during the beginning of the occupation of Korea by the Empire of Japan, and played a role in independence organizing by early Korean Americans. Families built a small community and earned money by picking citrus. Photos of residents include children playing baseball and track, riding bicycles, learning trumpet and playing among the chrysanthemums the community grew.</p>
+  <p>This portal was created in collaboration with <a href="https://www.mmmikkalous.com/">Mikki Paek</a>
 </li>
 
 <li class="item" id="truckee">
   <img src="sites/truckee.jpg" />
+  <img class="loc-site" src="sites/truckee-loc.jpg" />
   <h3>Truckee, California: Chinatown, c1870</h3>
-  <p>In 1870, more than a quarter of the population of Truckee was Chinese American, and a bustling Chinatown included 11 groceries, as well as tea shops, doctor’s offices, gardens, and a bath house.</p> 
-  <p>Truckee’s Chinatowns were subject to racist treatment, and were burnt down repeatedly until 1886, when most Chinese Americans left. Some relocated to Oroville and other areas, where they found relative safety and prosperity. Today, descendants of the Fong Lee family business in Truckee continue to trace their history back over 140 generations, and still remember their years in Truckee and the home they were able to make there.</p>
   <p>Visit the portal at the original site or at the Library of Congress:</p>
   <p>
     <a class="btn" href="https://maps.app.goo.gl/ZJjRQ5aaDVW895bu6">📍 Truckee, CA</a> 
-    <a class="btn" href="https://maps.app.goo.gl/qbYpWtANbp4kvhVh8">📍 LOC Adams Building south patio</a>
+    <a class="btn loc-site" href="https://maps.app.goo.gl/qbYpWtANbp4kvhVh8">📍 LOC Adams Building south patio</a>
   </p>
-  <p>
-    <a href="#loc">All LOC portals</a>
-  </p>
-  <img src="sites/truckee-loc.jpg" />
+  <p>In 1870, more than a quarter of the population of Truckee was Chinese American, and a bustling Chinatown included 11 groceries, as well as tea shops, doctor’s offices, gardens, and a bath house.</p> 
+  <p>Truckee’s Chinatowns were subject to racist treatment, and were burnt down repeatedly until 1886, when most Chinese Americans left. Some relocated to Oroville and other areas, where they found relative safety and prosperity. Today, descendants of the Fong Lee family business in Truckee continue to trace their history back over 140 generations, and still remember their years in Truckee and the home they were able to make there.</p>
+  <p>This portal was created in collaboration with <a href="https://hellodri.itch.io/">Dri Chiu Tattersfield</a>
 </li>
 
 </ul>
@@ -252,9 +242,13 @@ Read more at the Seeing Lost Enclaves website.
 <br />
 <br />
 
-<a onclick="testPortal()">Test Portal</a>
-<a class="btn" href="geo:38.887331364759575,-77.00499085539924">📍 map intent</a>
-<a class="btn" href="maps:daddr=38.887331364759575,-77.00499085539924">📍 ios intent</a>
+<a onclick="testPortal()">X</a>
+<a class="btn" href="geo:38.887331364759575,-77.00499085539924">📍</a>
+<a class="btn" href="maps:daddr=38.887331364759575,-77.00499085539924">📍</a>
+<p>
+    <a class="btn" href="https://maps.app.goo.gl/wyP5kpxEHZ2viaEBA">📍 Original site</a> 
+    <a class="btn" href="https://maps.app.goo.gl/hw7NJhNiQRquZAPUA">📍 Library of Congress</a>
+</p>
 
 </div>
 
