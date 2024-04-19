@@ -4,10 +4,14 @@ X rename carousel anchors by place #pachappa
 X fix portal to top of viewport, not page
 X carousel hash override - do it ourselves, so we can also detect and do it smoothly and centered?
 
-- rework buzzing, stop when actually there
+X rework buzzing, stop when actually there
+  - checked preservePortal < 1
+TEST above
 
-- TEST after 3m open portal if near - TEST ON SITE
+X TEST after 3m open portal if near - TEST ON SITE
   - closes?? (maybe after 3 persist?)
+X TESTED - lengthen to appx 30 checks?
+- TEST 30 checks or switch to time, not iterations
 
 - debug audio not turning off
 
@@ -32,7 +36,7 @@ let audioEl = {};
 hidePortal();
 
 let closeness = 0.0002; // approx 14m in US
-let timeLooking = 0, timeLimit = 10;
+let timeLooking = 0, timeLimit = 30;
 let count = 0, // delete this, it's debug
     preservePortal = 0, // leave portal open on a timer
     portalOpen = false;
