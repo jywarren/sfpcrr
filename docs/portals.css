@@ -55,6 +55,17 @@ iframe {
   font-size: 1.2em;
 }
 
+.two-columns {
+  max-width: 800px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, auto));
+}
+
+.two-columns > *{
+  padding: 20px;
+}
+
 .btn {
   padding:8px 10px;
   margin: 0 4px;
