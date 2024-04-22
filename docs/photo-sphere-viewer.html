@@ -15,6 +15,9 @@
                 margin: 0;
                 font-family: sans-serif;
             }
+            .psv-navbar {
+              background: none;
+            } 
         </style>
     </head>
     <body>
@@ -38,10 +41,14 @@
 
             const baseUrl = '';//'https://jywarren.github.io/sfpcrr/';
 
+            let params = new URLSearchParams(document.location.search);
+
             const viewer = new Viewer({
                 container: 'viewer',
-                panorama: baseUrl + 'images/mapogu-single.jpg',
+                panorama: baseUrl + (params.get("url") || 'images/mapogu-single.jpg'),
                 defaultZoomLvl: 0,
+                
+                //interpolateBackground: true,
                 //caption: 'Parc national du Mercantour <b>&copy; Damien Sorel</b>',
                 //loadingImg: baseUrl + 'loader.gif',
                 navbar: [
