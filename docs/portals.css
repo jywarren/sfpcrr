@@ -6,6 +6,10 @@ body {
   padding: 0%;
   padding-top: 20%;
 }
+#tiger {
+  max-width: 200px;
+  width: 50%;
+}
 .text {
   padding: 0 7%;
   max-width: 400px;
@@ -267,5 +271,48 @@ iframe {
   100% {
     scroll-snap-align: center;
   }
+}
+
+.jitterbug {
+  animation-duration: .3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  width: 200px;
+  margin-bottom: 35px;
+  animation-name: jitter;
+}
+
+@keyframes jitter {
+  10% {
+    translate(-2px, -3px) scale(1.01, 1.01);
+  }
+  20% {
+    transform: translate(3px, 2px) scale(.99, .99);
+  }
+  30% {
+    transform: translate(-1px, -1px) scale(1.01, 1.01);  
+  }
+  40% {
+    transform: translate(2px, 3px) scale(1, 1);
+  }
+  50% {
+    transform: translate(-1px, -2px) scale(.98, .98);
+  }
+  60% {
+    transform: translate(0px, 3px) scale(1.02, 1.02);
+  }
+  70% {
+    transform: translate(-2px, -1px) scale(1, 1);
+  }
+  80% {
+    transform: translate(3px, 1px) scale(.99, .99);
+  }
+  90% {
+    transform: translate(-1px, -3px) scale(1.1, 1.1);
+  }
+  100% {
+    transform: translate(3px, 1px) scale(.95, .95);
+  }                
 }
 

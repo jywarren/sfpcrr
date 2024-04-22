@@ -177,11 +177,13 @@ if (navigator.geolocation) {
       })
       if (isNearPortal && !foundPortal) {
         document.body.classList.add('crt');
+        document.getElementById('tiger').classList.add('jitterbug');
         timeLooking += 1;
         console.log('looking...', timeLooking); 
         if (!preservePortal < 1) window.navigator.vibrate([50,50,50]);
       } else {
         document.body.classList.remove('crt');
+        document.getElementById('tiger').classList.remove('jitterbug');
         timeLooking = 0; // restart count
       }
       preservePortal = preservePortal - 1;
