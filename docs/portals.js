@@ -48,7 +48,6 @@ function scrollAcross(id, block) {
   let el = document.getElementById(id);
   block = block || "nearest";
   if (el) el.scrollIntoView({behavior: 'smooth', block: block, inline: 'center'});
-  //location.hash = id;
 }
 
 function toggleLoc() {
