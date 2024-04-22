@@ -274,45 +274,44 @@ iframe {
 }
 
 .xjitterbug {
-  animation-duration: .3s;
+  animation-duration: .8s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
   width: 200px;
-  margin-bottom: 35px;
   animation-name: jitter;
 }
 
 @keyframes jitter {
   10% {
-    translate(-2px, -3px) scale(1.01, 1.01);
+    translate(-2px, -1px) scale(1.01, 1.01);
   }
   20% {
-    transform: translate(3px, 2px) scale(.99, .99);
+    transform: translate(1px, 2px) scale(.99, .99);
   }
   30% {
     transform: translate(-1px, -1px) scale(1.01, 1.01);  
   }
   40% {
-    transform: translate(2px, 3px) scale(1, 1);
+    transform: translate(2px, 1px) scale(1, 1);
   }
   50% {
-    transform: translate(-1px, -2px) scale(.98, .98);
+    transform: translate(-1px, -2px) scale(.99, .99);
   }
   60% {
-    transform: translate(0px, 3px) scale(1.02, 1.02);
+    transform: translate(0px, 1px) scale(1.01, 1.01);
   }
   70% {
     transform: translate(-2px, -1px) scale(1, 1);
   }
   80% {
-    transform: translate(3px, 1px) scale(.99, .99);
+    transform: translate(1px, 1px) scale(.99, .99);
   }
   90% {
-    transform: translate(-1px, -3px) scale(1.1, 1.1);
+    transform: translate(-1px, -1px) scale(1.1, 1.1);
   }
   100% {
-    transform: translate(3px, 1px) scale(.95, .95);
+    transform: translate(1px, 1px) scale(.99, .99);
   }                
 }
 
