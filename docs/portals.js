@@ -44,10 +44,16 @@ let count = 0, // delete this, it's debug
     preservePortal = 0, // leave portal open on a timer
     portalOpen = false;
 
-function scrollAcross(id) {
-  let el = document.getElementById(id)
-  if (el) el.scrollIntoView({behavior: 'smooth', block: "nearest", inline: 'center'});
+function scrollAcross(id, block) {
+  let el = document.getElementById(id);
+  block = block || "nearest";
+  if (el) el.scrollIntoView({behavior: 'smooth', block: block, inline: 'center'});
   //location.hash = id;
+}
+
+function toggleLoc() {
+  document.querySelectorAll('.loc-site-pic').forEach(function(el) { el.style.display = el.style.display == "block" ? "none" : "block"; });
+  document.querySelectorAll('.today-site-pic').forEach(function(el) { el.style.display = el.style.display == "none" ? "block" : "none"; });
 }
 
 if (window.location.hash != "") {

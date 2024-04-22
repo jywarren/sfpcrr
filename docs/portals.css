@@ -66,6 +66,10 @@ iframe {
   padding: 20px;
 }
 
+.loc-site-pic {
+  display:none;
+}
+
 .loc-site {
 /*  display:none;*/
 }
