@@ -32,7 +32,7 @@ let el = document.createElement('div');
 document.body.appendChild(el);
 el.classList.add("portalDiv");
 el.style="position:fixed;z-index:999;left:50%;bottom:50%;";
-el.innerHTML = '<iframe id="portal" src="https://jywarren.github.io/sfpcrr/?embedded&url=images/mapogu.jpg"></iframe>';
+el.innerHTML = '<iframe id="portal" src=""></iframe>';
 el.onclick = function() { portalGrow() };
 let portal = document.getElementById('portal');
 let audioEl = {};
@@ -94,16 +94,11 @@ function showPortal(src) {
   portal.style.width = '80vw';
   portal.style.height = '80vw';
   portal.style['border-radius'] = '500px';
-  document.querySelectorAll('.a-enter-vr').forEach(function(el) {
-   el.style.display = 'none';
-  });
-  document.querySelectorAll('.a-enter-ar').forEach(function(el) {
-   el.style.display = 'none';
-  });
 }
 function portalGrow(src) {
   el.style.left = 0;
   el.style.bottom = '-5px';
+  // refactor as standalone style, add styles for hiding "click to enter"
   portal.style.width = '100vw';
   portal.style.height = '101vh';
   portal.style['border-radius'] = 0;
@@ -115,12 +110,6 @@ function portalGrow(src) {
     }, false);
     audioEl.play();
   }
-  document.querySelectorAll('.a-enter-vr').forEach(function(el) {
-   el.style.display = '';
-  });
-  document.querySelectorAll('.a-enter-ar').forEach(function(el) {
-   el.style.display = '';
-  });
 }
 function hidePortal() {
   el.style.left = '50%';

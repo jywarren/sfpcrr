@@ -52,7 +52,7 @@ iframe {
   transition: all 2s ease-out;
 }
 
-.nav {
+.navlinks {
   margin: 20px 0;
   font-size: 1.4em;
 }
@@ -79,7 +79,7 @@ iframe {
 /*  display:none;*/
 }
 
-.btn {
+.btn-yellow {
   padding:8px 10px;
   margin: 0 4px;
   border-radius:5px;
@@ -88,6 +88,13 @@ iframe {
   text-decoration: none;
   text-wrap: nowrap; 
   line-height: 2.6em;
+}
+
+.modal {
+  --bs-modal-bg: #444;
+}
+.modal a{
+  text-wrap: nowrap; 
 }
 
 .btn:hover {
